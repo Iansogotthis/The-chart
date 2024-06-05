@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,7 +26,8 @@
             margin-bottom: 5px;
         }
 
-        .form-group input, .form-group textarea {
+        .form-group input,
+        .form-group textarea {
             width: 100%;
             padding: 8px;
             box-sizing: border-box;
@@ -42,6 +44,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Form Page</h1>
     <form id="square-form">
@@ -84,7 +87,7 @@
         const parentText = urlParams.get('parent');
         const depth = urlParams.get('depth');
 
-        document.getElementById("save").addEventListener("click", function () {
+        function saveFormData() {
             const title = document.getElementById("title").value;
             const plane = document.getElementById("plane").value;
             const purpose = document.getElementById("purpose").value;
@@ -106,25 +109,33 @@
                 extraData: extraData
             };
 
-            fetch('/save_data', {
+            fetch('http://localhost:3000/save_data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(data),
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
-                if(data.success) {
+                if (data.success) {
                     alert("Data saved successfully!");
                 } else {
-                    alert("Error saving data.");
+                    alert("Error saving data: " + data.error);
                 }
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
-        });
+        }
+
+        document.getElementById("save").addEventListener("click", saveFormData);
     </script>
 </body>
+
 </html>

@@ -52,6 +52,7 @@
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const squareClass = urlParams.get('class') || 'root';
+        const parentText = urlParams.get('parent') || 'Center';
 
         const svg = d3.select("#chart");
         const width = window.innerWidth * 0.9;
@@ -103,7 +104,7 @@
             "lightblue",
             squareClass,
             1,
-            "Center",
+            parentText,
         );
 
         const corners = [
@@ -126,7 +127,7 @@
         ];
 
         function drawSquares(corners, size, depth, className, parentText) {
-            if (depth > 3) return;
+            if (depth > 1) return;
 
             const colors = {
                 "root": "lightblue",
@@ -137,11 +138,11 @@
 
             corners.forEach(([x, y], index) => {
                 let currentClassName = className;
-                if (depth === 1) {
+                if (depth === 0) {
                     currentClassName = "branch";
-                } else if (depth === 2) {
+                } else if (depth === 1) {
                     currentClassName = "leaf";
-                } else if (depth === 3) {
+                } else if (depth === 2) {
                     currentClassName = "fruit";
                 }
 
@@ -177,7 +178,7 @@
             });
         }
 
-        drawSquares(corners, smallSquareSize, 1, squareClass, "Root");
+        drawSquares(corners, smallSquareSize, 0, squareClass, parentText);
     </script>
 </body>
 </html>

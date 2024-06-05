@@ -215,6 +215,8 @@
         const urlParams = new URLSearchParams(window.location.search);
         const rootClass = urlParams.get('root') || 'branch';
 
+        
+
         function drawScope() {
             if (rootClass === 'branch') {
                 drawSquare(centerX, centerY, centerSquareSize, "lightgray", "branch");
@@ -230,6 +232,7 @@
                 drawSquare(centerX + centerSquareSize / 2, centerY + centerSquareSize / 2, smallSquareSize, "lightcoral", "fruit4");
             }
         }
+        
 
         drawScope();
     </script>
