@@ -26,7 +26,11 @@
 
       .fruit {
         fill: lightcoral;
+        opacity: 0.3; /* Set default opacity to lower value */
       }
+      .fruit:hover {
+  opacity: 1; /* Ensure fruit is fully opaque when directly hovered over */
+}
 
       body,
       html {
@@ -133,6 +137,13 @@
       const btnInclude = document.getElementById("include");
       const btnCancel = document.getElementById("cancel");
       const labelInput = document.getElementById("label-input");
+      const squareData = {
+  class: 'fruit',
+  parent: 'leaf',
+  depth: 2,
+  title: 'Apple',
+  // Add other fields as necessary
+};
       let currentUrl = "";
       let currentTextElement = null;
       let currentSquareClass = "";
@@ -297,6 +308,75 @@
 
       // Start drawing from the initial corners and size
       drawSquares(corners, smallSquareSize, 1, "root", "Root");
+
+      // Function to adjust fruit opacity on leaf hover
+function adjustFruitOpacityOnLeafHover() {
+  const leafSquares = document.querySelectorAll('.leaf');
+  const fruitSquares = document.querySelectorAll('.fruit');
+
+  leafSquares.forEach(leaf => {
+    leaf.addEventListener('mouseover', () => {
+      fruitSquares.forEach(fruit => {
+        fruit.style.opacity = '1'; // Set fruit opacity to full on leaf hover
+      });
+    });
+
+    leaf.addEventListener('mouseout', () => {
+      fruitSquares.forEach(fruit => {
+        fruit.style.opacity = '0.3'; // Revert fruit opacity on mouse out
+      });
+    });
+  });
+}
+document.addEventListener('DOMContentLoaded', function() {
+    const btnSaveLabel = document.getElementById("save-label");
+    if (btnSaveLabel) {
+        btnSaveLabel.addEventListener('click', function() {
+            const labelValue = document.getElementById("label-input").value;
+            const squareData = {
+                class: 'fruit',
+                parent: 'leaf',
+                depth: 2,
+                title: labelValue, // Assuming you want to save the input as the title
+            };
+            console.log("Saving data:", squareData);
+            // Call saveSquareData to actually save the data
+            saveSquareData(squareData);
+        });
+    } else {
+        console.log("Save button not found");
+    }
+});
+
+function saveSquareData(squareData) {
+  fetch('/save_data', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(squareData),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+
+function getSquareData(squareClass, parent, depth) {
+  fetch(`/get_data?class=${encodeURIComponent(squareClass)}&parent=${encodeURIComponent(parent)}&depth=${encodeURIComponent(depth)}`)
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+    // Process the data
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+adjustFruitOpacityOnLeafHover();
     </script>
   </body>
 </html>
