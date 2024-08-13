@@ -349,32 +349,32 @@
       )
 
       // Function to save square data via a POST request
-      function saveSquareData(data) {
-        fetch('/save_square_data', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        })
-          .then(response => response.json())
-          .then(data => {
-            console.log('Success:', data)
-          })
-          .catch(error => {
-            console.error('Error:', error)
-          })
-      }
+      function saveSquareData() {
+  fetch('/your-endpoint', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      // Your data here
+    })
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
+}
 
       // Example usage of saveSquareData function
-      const exampleData = {
-        squareClass: 'branch',
-        label: 'Example Label',
-        position: { x: 100, y: 100 },
-        size: 50
-      }
-
-      saveSquareData(exampleData)
+    
     </script>
   </body>
 </html>

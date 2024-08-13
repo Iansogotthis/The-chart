@@ -15,12 +15,13 @@ app.use(bodyParser.json());
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// MySQL connection
+// Create MySQL connection
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+  port: process.env.DB_PORT
 });
 
 db.connect(err => {
@@ -34,7 +35,7 @@ db.connect(err => {
 // API Routes
 
 // Create a new square
-app.post('/squares', (req, res) => {
+app.post('/your-endpoint', (req, res) => {
   const { title, plane, purpose, delineator, notations, details, extraData, class: squareClass, parent, depth, name, size, color, type, parent_id } = req.body;
   const query = 'INSERT INTO squares (title, plane, purpose, delineator, notations, details, extraData, class, parent, depth, name, size, color, type, parent_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
   db.query(query, [title, plane, purpose, delineator, notations, details, extraData, squareClass, parent, depth, name, size, color, type, parent_id], (err, result) => {
