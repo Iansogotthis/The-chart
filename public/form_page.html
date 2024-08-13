@@ -47,95 +47,36 @@
 
 <body>
     <h1>Form Page</h1>
-    <form id="square-form">
+    <form id="square-form" action="/save" method="POST">
         <div class="form-group">
             <label for="title">Title (1):</label>
-            <input type="text" id="title" />
+            <input type="text" id="title" name="title" required />
         </div>
         <div class="form-group">
             <label for="plane">Plane (2):</label>
-            <input type="text" id="plane" />
+            <input type="text" id="plane" name="plane" required />
         </div>
         <div class="form-group">
             <label for="purpose">Purpose (3):</label>
-            <input type="text" id="purpose" />
+            <input type="text" id="purpose" name="purpose" required />
         </div>
         <div class="form-group">
             <label for="delineator">Delineator (4):</label>
-            <input type="text" id="delineator" />
+            <input type="text" id="delineator" name="delineator" required />
         </div>
         <div class="form-group">
             <label for="notations">Notations (5):</label>
-            <input type="text" id="notations" />
+            <input type="text" id="notations" name="notations" required />
         </div>
         <div class="form-group">
             <label for="details">Details (6):</label>
-            <textarea id="details"></textarea>
+            <textarea id="details" name="details" required></textarea>
         </div>
         <div class="form-group">
             <label for="extra-data">Extra Data (17):</label>
-            <textarea id="extra-data"></textarea>
+            <textarea id="extra-data" name="extraData" required></textarea>
         </div>
-        <div class="form-group">
-            <button type="button" id="save">Save</button>
-        </div>
+        <button type="submit">Save</button>
     </form>
-    <script>
-        const form = document.getElementById("square-form");
-        const urlParams = new URLSearchParams(window.location.search);
-        const squareClass = urlParams.get('class');
-        const parentText = urlParams.get('parent');
-        const depth = urlParams.get('depth');
-
-        function saveFormData() {
-            const title = document.getElementById("title").value;
-            const plane = document.getElementById("plane").value;
-            const purpose = document.getElementById("purpose").value;
-            const delineator = document.getElementById("delineator").value;
-            const notations = document.getElementById("notations").value;
-            const details = document.getElementById("details").value;
-            const extraData = document.getElementById("extra-data").value;
-
-            const data = {
-                class: squareClass,
-                parent: parentText,
-                depth: depth,
-                title: title,
-                plane: plane,
-                purpose: purpose,
-                delineator: delineator,
-                notations: notations,
-                details: details,
-                extraData: extraData
-            };
-
-            fetch('http://localhost:3000/save_data', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.success) {
-                    alert("Data saved successfully!");
-                } else {
-                    alert("Error saving data: " + data.error);
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        }
-
-        document.getElementById("save").addEventListener("click", saveFormData);
-    </script>
 </body>
-
 </html>
