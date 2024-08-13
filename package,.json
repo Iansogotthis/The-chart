@@ -1,0 +1,14 @@
+{
+  "name": "square-chart",
+  "version": "1.0.0",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "rethinkdbdash": "^2.3.34",
+    "dotenv": "^10.0.0"
+  },
+  "engines": {
+    "node": ">=14.17.0"
+  }
+}
