@@ -12,11 +12,6 @@
         cursor: pointer;
       }
 
-
-      .root {
-        fill: lightblue;
-      }
-
       .branch {
         fill: lightgray;
       }
@@ -96,24 +91,9 @@
         font-size: 16px;
         cursor: pointer;
       }
-
-      .delineated-button {
-        position: absolute;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-      }
     </style>
   </head>
   <body>
-    <button class="delineated-button" onclick="window.location.href='scope_index.html'">Delineated View</button>
     <svg id="chart"></svg>
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -139,7 +119,6 @@
       const smallSquareSize = centerSquareSize / 2;
       const smallestSquareSize = smallSquareSize / 2;
       const tinySquareSize = smallestSquareSize / 2;
-
 
       svg
         .attr("viewBox", `0 0 ${width} ${height}`)
@@ -245,31 +224,87 @@
           .text(className);
       }
 
-      // Draw the root square
-      drawSquare(
-        centerX,
-        centerY,
-        centerSquareSize,
-        "lightblue",
-        "root",
-        1,
-        "Center"
-      );
+      // Coordinates for the branch squares, 50% closer to the center
+      const closerFactor = 0.5; // 50% closer
 
-      // Coordinates for the small squares from the root square
-      const corners = [
-        [centerX - centerSquareSize / 2, centerY - centerSquareSize / 2], // top-left
-        [centerX + centerSquareSize / 2, centerY - centerSquareSize / 2], // top-right
-        [centerX - centerSquareSize / 2, centerY + centerSquareSize / 2], // bottom-left
-        [centerX + centerSquareSize / 2, centerY + centerSquareSize / 2], // bottom-right
+      const closerCorners = [
+        [
+          centerX - (centerSquareSize / 2) * closerFactor,
+          centerY - (centerSquareSize / 2) * closerFactor,
+        ], // top-left
+        [
+          centerX + (centerSquareSize / 2) * closerFactor,
+          centerY - (centerSquareSize / 2) * closerFactor,
+        ], // top-right
+        [
+          centerX - (centerSquareSize / 2) * closerFactor,
+          centerY + (centerSquareSize / 2) * closerFactor,
+        ], // bottom-left
+        [
+          centerX + (centerSquareSize / 2) * closerFactor,
+          centerY + (centerSquareSize / 2) * closerFactor,
+        ], // bottom-right
       ];
 
-      // Draw the squares in each layer
+      // Draw the branch squares with updated positions
+      drawSquares(closerCorners, smallSquareSize, 1, "branch", "Branch");
+
+      // Function to adjust fruit opacity on leaf hover
+      function adjustFruitOpacityOnLeafHover() {
+        const leafSquares = document.querySelectorAll(".leaf");
+        const fruitSquares = document.querySelectorAll(".fruit");
+
+        leafSquares.forEach((leaf) => {
+          leaf.addEventListener("mouseover", () => {
+            fruitSquares.forEach((fruit) => {
+              fruit.style.opacity = "1"; // Set fruit opacity to full on leaf hover
+            });
+          });
+
+          leaf.addEventListener("mouseout", () => {
+            fruitSquares.forEach((fruit) => {
+              fruit.style.opacity = "0.3"; // Revert fruit opacity on mouse out
+            });
+          });
+        });
+      }
+
+      // Call the function to adjust fruit opacity on leaf hover
+      adjustFruitOpacityOnLeafHover();
+
+      // Function to save square data via a POST request
+      function saveSquareData(data) {
+        fetch("/save_square_data", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+
+      // Example usage of saveSquareData function
+      const exampleData = {
+        squareClass: "branch",
+        label: "Example Label",
+        position: { x: 100, y: 100 },
+        size: 50,
+      };
+
+      saveSquareData(exampleData);
+
+      // Updated drawSquares function
       function drawSquares(corners, size, depth, className, parentText) {
         if (depth > 3) return; // Limit the depth for better performance
 
         const colors = {
-          root: "lightblue",
           branch: "lightgray",
           leaf: "lightgreen",
           fruit: "lightcoral",
@@ -283,6 +318,16 @@
             currentClassName = "leaf";
           } else if (depth === 3) {
             currentClassName = "fruit";
+          }
+
+          // Skip specific squares
+          if (
+            (depth === 2 && index === 3 && parentText.endsWith("_1")) || // top-left's bottom-right for branch 1
+            (depth === 2 && index === 2 && parentText.endsWith("_2")) || // bottom-right's top-right for branch 2
+            (depth === 2 && index === 1 && parentText.endsWith("_3")) || // top-right's bottom-right for branch 3
+            (depth === 2 && index === 0 && parentText.endsWith("_4")) // bottom-left's top-right for branch 4
+          ) {
+            return;
           }
 
           drawSquare(
@@ -316,59 +361,6 @@
           }
         });
       }
-
-      // Start drawing from the initial corners and size
-      drawSquares(corners, smallSquareSize, 1, "root", "Root");
-
-      // Function to adjust fruit opacity on leaf hover
-      function adjustFruitOpacityOnLeafHover() {
-        const leafSquares = document.querySelectorAll('.leaf');
-        const fruitSquares = document.querySelectorAll('.fruit');
-
-        leafSquares.forEach(leaf => {
-          leaf.addEventListener('mouseover', () => {
-            fruitSquares.forEach(fruit => {
-              fruit.style.opacity = '1'; // Set fruit opacity to full on leaf hover
-            });
-          });
-
-          leaf.addEventListener('mouseout', () => {
-            fruitSquares.forEach(fruit => {
-              fruit.style.opacity = '0.3'; // Revert fruit opacity on mouse out
-            });
-          });
-        });
-      }
-
-      document.addEventListener('DOMContentLoaded', adjustFruitOpacityOnLeafHover);
-
-      // Function to save square data via a POST request
-      function saveSquareData(data) {
-        fetch('/save_square_data', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        })
-        .then(response => response.json())
-        .then(data => {
-          console.log('Success:', data);
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
-      }
-
-      // Example usage of saveSquareData function
-      const exampleData = {
-        squareClass: 'branch',
-        label: 'Example Label',
-        position: { x: 100, y: 100 },
-        size: 50,
-      };
-
-      saveSquareData(exampleData);
     </script>
   </body>
 </html>
