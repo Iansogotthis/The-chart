@@ -1,9 +1,9 @@
+const r = require('rethinkdb');
 const express = require("express");
 const bodyParser = require("body-parser");
 const mysql = require("mysql");
 const cors = require("cors");
 const path = require("path");
-const r = require('rethinkdb');
 require("dotenv").config(); // Load environment variables from .env file
 
 // Initialize Express application
@@ -19,18 +19,15 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Setup MySQL connection pool
 const pool = mysql.createPool({
-  host: 'e11wl4mksauxgu1w.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-  user: 'hp0lzrzsnuzjl0ei',
-  password: 'zvskixvf2bwkvhjh',
-  database: 'bfaxn1uhv9udz7ng',
-  port: 3306,
+  host: process.env.MYSQL_HOST || 'e11wl4mksauxgu1w.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+  user: process.env.MYSQL_USER || 'hp0lzrzsnuzjl0ei',
+  password: process.env.MYSQL_PASSWORD || 'zvskixvf2bwkvhjh',
+  database: process.env.MYSQL_DATABASE || 'bfaxn1uhv9udz7ng',
+  port: process.env.MYSQL_PORT || 3306,
   connectionLimit: 5 // Maximum number of connections in the pool
 });
 
 // Connect to RethinkDB
-
-
-
 const connectToRethinkDB = async () => {
   try {
     const connection = await r.connect({
@@ -47,7 +44,6 @@ const connectToRethinkDB = async () => {
     throw error;
   }
 };
-
 
 // Route to handle form submission
 app.post('/save', async (req, res) => {
@@ -128,4 +124,4 @@ const startServer = async () => {
 };
 
 startServer();
-module.exports = { connectToRethinkDB }
+module.exports = { connectToRethinkDB };

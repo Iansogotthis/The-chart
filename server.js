@@ -3,14 +3,14 @@ const path = require("path");
 const rethinkdbdash = require("rethinkdbdash");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // Connect to RethinkDB
 const connectToRethinkDB = async () => {
   const r = rethinkdbdash({
-    host: "localhost", // Ensure this is correct
-    port: 28015, // Ensure this is correct
-    db: "test" // Specify your database name
+    host: process.env.RETHINKDB_HOST || "localhost",
+    port: process.env.RETHINKDB_PORT || 28015,
+    db: process.env.RETHINKDB_NAME || "test"
   });
   try {
     await r.dbList();
@@ -38,6 +38,3 @@ const startServer = async () => {
 };
 
 startServer();
-module.exports = {
-  connectToRethinkDB
-};
