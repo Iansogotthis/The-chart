@@ -116,22 +116,22 @@
                 },
                 body: JSON.stringify(data),
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.success) {
-                    alert("Data saved successfully!");
-                } else {
-                    alert("Error saving data: " + data.error);
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        alert("Data saved successfully!");
+                    } else {
+                        alert("Error saving data: " + data.error);
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
         }
 
         document.getElementById("save").addEventListener("click", saveFormData);

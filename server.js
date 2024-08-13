@@ -17,15 +17,29 @@ app.use(bodyParser.json()); // Parse incoming request bodies in JSON format
 app.use(express.static(path.join(__dirname, "public")));
 
 // Setup MySQL connection pool
-const pool = mysql.createPool({
-  host: 'e11wl4mksauxgu1w.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-  user: 'hp0lzrzsnuzjl0ei',
-  password: 'zvskixvf2bwkvhjh',
-  database: 'bfaxn1uhv9udz7ng',
-  port: 3306,
-  connectionLimit: 5 // Maximum number of connections in the pool
-});
-
+r = require('rethinkdb')
+r.connect(
+  {
+    host: process.env.RETHINKDB_HOST || "localhost",
+    port: process.env.RETHINKDB_PORT || 28015,
+    username: process.env.RETHINKDB_USERNAME || "admin",
+    password: process.env.RETHINKDB_PASSWORD || "",
+    db: process.env.RETHINKDB_NAME || "test",
+  },
+  function (err, conn) {
+    if (err) throw err;
+    r.tableCreate("scquares").run(conn, function (err, res) {
+      if (err) throw err;
+      console.log(res);
+      r.table("squares")
+        .insert({ name: "square1" })
+        .run(conn, function (err, res) {
+          if (err) throw err;
+          console.log(res);
+        });
+    });
+  }
+);
 // API Routes
 
 /**
@@ -229,47 +243,47 @@ app.delete("/squares/:id", async (req, res) => {
       conn.query(query, [id], (error) => {
         conn.release();
         if (error) {
-            console.error('Error updating square:', error);
-            return res.status(500).json({ error: 'Internal Server Error' });
-          }
-          res.status(200).json({ message: "Square updated successfully" });
-        });
-      });
-    } catch (err) {
-      console.error('Error updating square:', err);
-      res.status(500).json({ error: 'Internal Server Error' });
-    }
-  });
-  
-  /**
-   * Route to delete a square
-   * This endpoint deletes a square from the database based on the provided ID.
-   */
-  app.delete("/squares/:id", async (req, res) => {
-    const { id } = req.params;
-    const query = "DELETE FROM squares WHERE id = ?";
-    try {
-      pool.getConnection((err, conn) => {
-        if (err) {
-          console.error('Error getting connection:', err);
+          console.error('Error updating square:', error);
           return res.status(500).json({ error: 'Internal Server Error' });
         }
-        conn.query(query, [id], (error) => {
-          conn.release();
-          if (error) {
-            console.error('Error deleting square:', error);
-            return res.status(500).json({ error: 'Internal Server Error' });
-          }
-          res.status(200).json({ message: "Square deleted successfully" });
-        });
+        res.status(200).json({ message: "Square updated successfully" });
       });
-    } catch (err) {
-      console.error('Error deleting square:', err);
-      res.status(500).json({ error: 'Internal Server Error' });
-    }
-  });
-  
-  // Start the server
-  app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-  });
+    });
+  } catch (err) {
+    console.error('Error updating square:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+/**
+ * Route to delete a square
+ * This endpoint deletes a square from the database based on the provided ID.
+ */
+app.delete("/squares/:id", async (req, res) => {
+  const { id } = req.params;
+  const query = "DELETE FROM squares WHERE id = ?";
+  try {
+    pool.getConnection((err, conn) => {
+      if (err) {
+        console.error('Error getting connection:', err);
+        return res.status(500).json({ error: 'Internal Server Error' });
+      }
+      conn.query(query, [id], (error) => {
+        conn.release();
+        if (error) {
+          console.error('Error deleting square:', error);
+          return res.status(500).json({ error: 'Internal Server Error' });
+        }
+        res.status(200).json({ message: "Square deleted successfully" });
+      });
+    });
+  } catch (err) {
+    console.error('Error deleting square:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});

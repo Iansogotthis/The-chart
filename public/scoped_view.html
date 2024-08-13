@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,7 +29,8 @@
             fill: lightcoral;
         }
 
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -85,7 +87,8 @@
             font-weight: bold;
         }
 
-        .close:hover, .close:focus {
+        .close:hover,
+        .close:focus {
             color: black;
             text-decoration: none;
             cursor: pointer;
@@ -99,6 +102,7 @@
         }
     </style>
 </head>
+
 <body>
     <button class="back-button" onclick="window.location.href='index.html'">Back to Main View</button>
     <svg id="chart"></svg>
@@ -181,7 +185,7 @@
 
         function debounce(func, wait) {
             let timeout;
-            return function(...args) {
+            return function (...args) {
                 clearTimeout(timeout);
                 timeout = setTimeout(() => func.apply(this, args), wait);
             };
@@ -215,7 +219,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const rootClass = urlParams.get('root') || 'branch';
 
-        
+
 
         function drawScope() {
             if (rootClass === 'branch') {
@@ -232,9 +236,10 @@
                 drawSquare(centerX + centerSquareSize / 2, centerY + centerSquareSize / 2, smallSquareSize, "lightcoral", "fruit4");
             }
         }
-        
+
 
         drawScope();
     </script>
 </body>
+
 </html>
