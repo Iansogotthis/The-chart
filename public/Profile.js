@@ -1,6 +1,8 @@
+// Profile.js
 import React from 'react';
 import { auth } from './firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOutUser } from './auth';
 
 const Profile = () => {
   const [user] = useAuthState(auth);
@@ -12,6 +14,7 @@ const Profile = () => {
         <div>
           <p>Name: {user.displayName}</p>
           <p>Email: {user.email}</p>
+          <button onClick={signOutUser}>Sign Out</button>
         </div>
       )}
     </div>

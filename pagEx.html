@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Login Example</title>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+</head>
+<body>
+    <div id="login-page">
+        <button id="login-button">Login with Google</button>
+    </div>
+    <div id="home-page" style="display: none;">
+        <h2>Home Page</h2>
+        <button id="profile-button">Go to Profile</button>
+        <button id="logout-button">Logout</button>
+    </div>
+    <div id="profile-page" style="display: none;">
+        <h2>Profile Page</h2>
+        <div id="user-info"></div>
+        <button id="home-button">Go to Home</button>
+        <button id="logout-button-profile">Logout</button>
+    </div>
+
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        // DOM elements
+        const loginPage = document.getElementById('login-page');
+        const homePage = document.getElementById('home-page');
+        const profilePage = document.getElementById('profile-page');
+        const loginButton = document.getElementById('login-button');
+        const profileButton = document.getElementById('profile-button');
+        const homeButton = document.getElementById('home-button');
+        const logoutButton = document.getElementById('logout-button');
+        const logoutButtonProfile = document.getElementById('logout-button-profile');
+        const userInfo = document.getElementById('user-info');
+
+        // Event listeners
+        loginButton.addEventListener('click', signInWithGoogle);
+        profileButton.addEventListener('click', () => {
+            homePage.style.display = 'none';
+            profilePage.style.display = 'block';
+        });
+        homeButton.addEventListener('click', () => {
+            profilePage.style.display = 'none';
+            homePage.style.display = 'block';
+        });
+        logoutButton.addEventListener('click', signOutUser);
+        logoutButtonProfile.addEventListener('click', signOutUser);
+
+        // Sign in with Google
+        function signInWithGoogle() {
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    loginPage.style.display = 'none';
+                    homePage.style.display = 'block';
+                })
+                .catch((error) => {
+                    console.error("Error signing in with Google", error);
+                });
+        }
+
+        // Sign out user
+        function signOutUser() {
+            auth.signOut()
+                .then(() => {
+                    homePage.style.display = 'none';
+                    profilePage.style.display = 'none';
+                    loginPage.style.display = 'block';
+                })
+                .catch((error) => {
+                    console.error("Error signing out", error);
+                });
+        }
+
+        // Monitor auth state
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                loginPage.style.display = 'none';
+                homePage.style.display = 'block';
+                userInfo.innerHTML = `<p>Name: ${user.displayName}</p><p>Email: ${user.email}</p>`;
+            } else {
+                loginPage.style.display = 'block';
+                homePage.style.display = 'none';
+                profilePage.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
