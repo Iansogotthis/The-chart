@@ -1,0 +1,19 @@
+{
+  "name": "the-chart",
+  "version": "1.0.0",
+  "description": "The Chart is an extraordinary application that empowers individuals and organizations to unlock the transformative potential hidden within their data. By seamlessly combining the prowess of D3.js, React, and MySQL, this innovative tool enables users to weave raw information into a mesmerizing tapestry of dynamic visualizations and interactive experiences.",
+  "main": "auth.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^10.12.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router": "^6.26.0"
+  }
+}
