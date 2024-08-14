@@ -1,10 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Main View</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Firebase App (the core Firebase SDK) -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<!-- Firebase Authentication -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
     <style>
       .square {
         stroke: black;
@@ -230,20 +234,20 @@
       const closerCorners = [
         [
           centerX - (centerSquareSize / 2) * closerFactor,
-          centerY - (centerSquareSize / 2) * closerFactor,
+          centerY - (centerSquareSize / 2) * closerFactor
         ], // top-left
         [
           centerX + (centerSquareSize / 2) * closerFactor,
-          centerY - (centerSquareSize / 2) * closerFactor,
+          centerY - (centerSquareSize / 2) * closerFactor
         ], // top-right
         [
           centerX - (centerSquareSize / 2) * closerFactor,
-          centerY + (centerSquareSize / 2) * closerFactor,
+          centerY + (centerSquareSize / 2) * closerFactor
         ], // bottom-left
         [
           centerX + (centerSquareSize / 2) * closerFactor,
-          centerY + (centerSquareSize / 2) * closerFactor,
-        ], // bottom-right
+          centerY + (centerSquareSize / 2) * closerFactor
+        ] // bottom-right
       ];
 
       // Draw the branch squares with updated positions
@@ -277,9 +281,9 @@
         fetch("/save_square_data", {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json"
           },
-          body: JSON.stringify(data),
+          body: JSON.stringify(data)
         })
           .then((response) => response.json())
           .then((data) => {
@@ -295,7 +299,7 @@
         squareClass: "branch",
         label: "Example Label",
         position: { x: 100, y: 100 },
-        size: 50,
+        size: 50
       };
 
       saveSquareData(exampleData);
@@ -307,7 +311,7 @@
         const colors = {
           branch: "lightgray",
           leaf: "lightgreen",
-          fruit: "lightcoral",
+          fruit: "lightcoral"
         };
 
         corners.forEach(([x, y], index) => {
@@ -346,7 +350,7 @@
               [x - size / 2, y - size / 2], // top-left
               [x + size / 2, y - size / 2], // top-right
               [x - size / 2, y + size / 2], // bottom-left
-              [x + size / 2, y + size / 2], // bottom-right
+              [x + size / 2, y + size / 2] // bottom-right
             ];
 
             requestAnimationFrame(() => {

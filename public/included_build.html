@@ -1,34 +1,68 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Included Build</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <!-- Firebase Authentication -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
     <style>
-        .square {
-            stroke: black;
-            stroke-width: 2px;
+        .nav,
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+        
+        .nav {
+            top: 0;
+        }
+        
+        .footer {
+            bottom: 0;
+        }
+        
+        .nav a,
+        .nav button,
+        .footer a,
+        .footer button {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            background: none;
+            border: none;
             cursor: pointer;
+            font-family: inherit;
         }
-
-        .root {
-            fill: lightblue;
+        
+        .nav button,
+        .footer button {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            transition: background-color 0.3s, border-color 0.3s;
         }
-
-        .branch {
-            fill: lightgray;
+        
+        .nav button:hover,
+        .footer button:hover {
+            background-color: #f0f0f0;
+            border-color: #bbb;
         }
-
-        .leaf {
-            fill: lightgreen;
-        }
-
-        .fruit {
-            fill: lightcoral;
-        }
-
-        body, html {
+        
+        body,
+        html {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -38,21 +72,53 @@
             align-items: center;
             overflow: hidden;
         }
-
+        
         svg {
             width: 90vw;
             height: 90vh;
             display: block;
             margin: auto;
         }
+        
+        .square {
+            stroke: black;
+            stroke-width: 2px;
+            cursor: pointer;
+        }
+        
+        .root {
+            fill: lightblue;
+        }
+        
+        .branch {
+            fill: lightgray;
+        }
+        
+        .leaf {
+            fill: lightgreen;
+        }
+        
+        .fruit {
+            fill: lightcoral;
+        }
     </style>
 </head>
+
 <body>
+    <nav class="nav">
+        <button img src="/images/orange_repicthousebase_1484336388.png" alt="Logo" id="home-button" class="nav-button" href="index.html">Home</button>
+        <button alt="label" placeholder="Profile" id="profile-button" class="nav-button">Profile</button>
+        <button id="new-button" class="nav-button" href="new-square.html" placeholder="New Square">New Square</button>
+        <button id="stored-button" class="nav-button" href="stored-squares.html" placeholder="Stored Squares">Stored
+                Squares</button>
+        <button id="login">Login with Google</button>
+        <button id="logout" style="display: none">Logout</button>
+    </nav>
     <svg id="chart"></svg>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const squareClass = urlParams.get('class') || 'root';
-        const parentText = urlParams.get('parent') || 'Center';
+        const squareClass = urlParams.get("class") || "root";
+        const parentText = urlParams.get("parent") || "Center";
 
         const svg = d3.select("#chart");
         const width = window.innerWidth * 0.9;
@@ -64,17 +130,11 @@
         const smallestSquareSize = smallSquareSize / 2;
         const tinySquareSize = smallestSquareSize / 2;
 
-        svg.attr("viewBox", `0 0 ${width} ${height}`).attr("preserveAspectRatio", "xMidYMid meet");
+        svg
+            .attr("viewBox", `0 0 ${width} ${height}`)
+            .attr("preserveAspectRatio", "xMidYMid meet");
 
-        function drawSquare(
-            x,
-            y,
-            size,
-            color,
-            className,
-            depth,
-            parentText,
-        ) {
+        function drawSquare(x, y, size, color, className, depth, parentText) {
             const rect = svg
                 .append("rect")
                 .attr("x", x - size / 2)
@@ -83,11 +143,12 @@
                 .attr("height", size)
                 .attr("class", `square ${className}`)
                 .attr("fill", color)
-                .on("click", function () {
+                .on("click", function() {
                     window.location.href = `form_page.html?class=${className}&parent=${parentText}&depth=${depth}`;
                 });
 
-            svg.append("text")
+            svg
+                .append("text")
                 .attr("x", x)
                 .attr("y", y)
                 .attr("dy", "0.35em")
@@ -104,36 +165,24 @@
             "lightblue",
             squareClass,
             1,
-            parentText,
+            parentText
         );
 
         const corners = [
-            [
-                centerX - centerSquareSize / 2,
-                centerY - centerSquareSize / 2,
-            ],
-            [
-                centerX + centerSquareSize / 2,
-                centerY - centerSquareSize / 2,
-            ],
-            [
-                centerX - centerSquareSize / 2,
-                centerY + centerSquareSize / 2,
-            ],
-            [
-                centerX + centerSquareSize / 2,
-                centerY + centerSquareSize / 2,
-            ],
+            [centerX - centerSquareSize / 2, centerY - centerSquareSize / 2],
+            [centerX + centerSquareSize / 2, centerY - centerSquareSize / 2],
+            [centerX - centerSquareSize / 2, centerY + centerSquareSize / 2],
+            [centerX + centerSquareSize / 2, centerY + centerSquareSize / 2]
         ];
 
         function drawSquares(corners, size, depth, className, parentText) {
             if (depth > 1) return;
 
             const colors = {
-                "root": "lightblue",
-                "branch": "lightgray",
-                "leaf": "lightgreen",
-                "fruit": "lightcoral"
+                root: "lightblue",
+                branch: "lightgray",
+                leaf: "lightgreen",
+                fruit: "lightcoral"
             };
 
             corners.forEach(([x, y], index) => {
@@ -153,7 +202,7 @@
                     colors[currentClassName] || "",
                     currentClassName || "",
                     depth,
-                    parentText,
+                    parentText
                 );
 
                 if (size > tinySquareSize) {
@@ -162,7 +211,7 @@
                         [x - size / 2, y - size / 2],
                         [x + size / 2, y - size / 2],
                         [x - size / 2, y + size / 2],
-                        [x + size / 2, y + size / 2],
+                        [x + size / 2, y + size / 2]
                     ];
 
                     requestAnimationFrame(() => {
@@ -171,7 +220,7 @@
                             nextSize,
                             depth + 1,
                             currentClassName || "",
-                            `${parentText}_${index + 1}`,
+                            `${parentText}_${index + 1}`
                         );
                     });
                 }
@@ -180,5 +229,14 @@
 
         drawSquares(corners, smallSquareSize, 0, squareClass, parentText);
     </script>
+    <footer class="footer">
+        <button class="footer-link" href="https://twitter.com" target="_blank">Twitter</button>
+        <button class="footer-link" href="https://facebook.com" target="_blank">Facebook</button>
+        <button class="footer-link" href="settings.html">Settings</button>
+        <button class="footer-link" href="about.html">About</button>
+        <button class="footer-link" href="contact.html">Contact</button>
+        <button id="footer-logout" class="footer-link">Logout</button>
+    </footer>
 </body>
+
 </html>

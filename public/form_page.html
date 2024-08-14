@@ -9,78 +9,175 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            text-align: center;
         }
-
+        
+        .nav,
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: space-between;
+            background-color: #ffffff;
+            padding: 7px 11px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+        
+        .nav {
+            top: 0;
+        }
+        
+        .footer {
+            bottom: 0;
+        }
+        
+        .nav a,
+        .nav button,
+        .footer a,
+        .footer button {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        
+        .nav button,
+        .footer button {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        
+        .nav button:hover,
+        .footer button:hover {
+            background-color: #f0f0f0;
+            border-color: #bbb;
+        }
+        
+        .content {
+            margin-top: 60px;
+            margin-bottom: 60px;
+            /* Adjust based on the height of the nav and footer */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 120px);
+            /* Adjust based on the height of the nav and footer */
+        }
+        
         .form-group {
             margin-bottom: 15px;
             width: 100%;
             max-width: 500px;
         }
-
+        
         .form-group label {
             display: block;
             margin-bottom: 5px;
+            font-weight: bold;
         }
-
+        
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 8px;
             box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
-
+        
         .form-group textarea {
             height: 100px;
         }
-
+        
         .form-group button {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+        
+        .scrollable-form {
+            height: 300px;
+            overflow: auto;
         }
     </style>
-<!-- Remove the extra closing </head> tag -->
-
-<body>
-    <title>Form Page</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <form id="square-form" action="/save" method="POST">
-        <div class="form-group">
-            <label for="title">Title (1):</label>
-            <input type="text" id="title" name="title" required />
-        </div>
-        <div class="form-group">
-            <label for="plane">Plane (2):</label>
-            <input type="text" id="plane" name="plane" required />
-        </div>
-        <div class="form-group">
-            <label for="purpose">Purpose (3):</label>
-            <input type="text" id="purpose" name="purpose" required />
-        </div>
-        <div class="form-group">
-            <label for="delineator">Delineator (4):</label>
-            <input type="text" id="delineator" name="delineator" required />
-        </div>
-        <div class="form-group">
-            <label for="notations">Notations (5):</label>
-            <input type="text" id="notations" name="notations" required />
-        </div>
-        <div class="form-group">
-            <label for="details">Details (6):</label>
-            <textarea id="details" name="details" required></textarea>
-        </div>
-        <div class="form-group">
-            <label for="extra-data">Extra Data (17):</label>
-            <textarea id="extra-data" name="extraData" required></textarea>
-        </div>
-        <button type="submit">Save</button>
-    </form>
+<nav class="nav">
+    <button img src="/images/orange_repicthousebase_1484336388.png" alt="Logo" id="home-button" class="nav-button" href="index.html">Home</button>
+    <button alt="label" placeholder="Profile" id="profile-button" class="nav-button">Profile</button>
+    <button id="new-button" class="nav-button" href="new-square.html" placeholder="New Square">New Square</button>
+    <button id="stored-button" class="nav-button" href="stored-squares.html" placeholder="Stored Squares">Stored Squares</button>
+    <button id="login ">Login with Google</button>
+    <button id="logout " style="display: none ">Logout</button>
+</nav>
 
+
+<div class="scrollable-form">
+    <form id="square-form " action="/save " method="POST" style="padding-top: 20px;">
+        <div class="form-group ">
+            <label for="title ">Title (1):</label>
+            <input type="text " id="title " name="title " required />
+        </div>
+        <div class="form-group ">
+            <label for="plane ">Plane (2):</label>
+            <input type="text " id="plane " name="plane " required />
+        </div>
+        <div class="form-group ">
+            <label for="purpose ">Purpose (3):</label>
+            <input type="text " id="purpose " name="purpose " required />
+        </div>
+        <div class="form-group ">
+            <label for="delineator ">Delineator (4):</label>
+            <input type="text " id="delineator " name="delineator " required />
+        </div>
+        <div class="form-group ">
+            <label for="notations ">Notations (5):</label>
+            <input type="text " id="notations " name="notations " required />
+        </div>
+        <div class="form-group ">
+            <label for="details ">Details (6):</label>
+            <textarea id="details " name="details " required></textarea>
+        </div>
+        <div class="form-group ">
+            <label for="extra-data ">Extra Data (17):</label>
+            <textarea id="extra-data " name="extraData " required></textarea>
+        </div>
+        <button type="submit ">Save</button>
+    </form>
+</div>
+<footer class="footer ">
+    <button class="footer-link " href="https://twitter.com " target="_blank ">Twitter</button>
+    <button class="footer-link " href="https://facebook.com " target="_blank ">Facebook</button>
+    <button class="footer-link " href="settings.html ">Settings</button>
+    <button class="footer-link " href="about.html ">About</button>
+    <button class="footer-link " href="contact.html ">Contact</button>
+    <button id="footer-logout " class="footer-link ">Logout</button>
+</footer>
 </body>
+
 </html>

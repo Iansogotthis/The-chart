@@ -1,34 +1,40 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scaled View</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <!-- Firebase Authentication -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
     <style>
         .square {
             stroke: black;
             stroke-width: 2px;
             cursor: pointer;
         }
-
+        
         .root {
             fill: lightblue;
         }
-
+        
         .branch {
             fill: lightgray;
         }
-
+        
         .leaf {
             fill: lightgreen;
         }
-
+        
         .fruit {
             fill: lightcoral;
         }
-
-        body, html {
+        
+        body,
+        html {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -38,21 +44,21 @@
             align-items: center;
             overflow: hidden;
         }
-
+        
         svg {
             width: 90vw;
             height: 90vh;
             display: block;
             margin: auto;
         }
-
+        
         .back-button {
             margin: 10px;
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
         }
-
+        
         .modal {
             display: none;
             position: fixed;
@@ -66,7 +72,7 @@
             justify-content: center;
             align-items: center;
         }
-
+        
         .modal-content {
             background-color: #fefefe;
             margin: auto;
@@ -76,20 +82,21 @@
             max-width: 400px;
             text-align: center;
         }
-
+        
         .close {
             color: #aaa;
             float: right;
             font-size: 28px;
             font-weight: bold;
         }
-
-        .close:hover, .close:focus {
+        
+        .close:hover,
+        .close:focus {
             color: black;
             text-decoration: none;
             cursor: pointer;
         }
-
+        
         .modal-button {
             padding: 10px 20px;
             margin: 10px;
@@ -98,8 +105,19 @@
         }
     </style>
 </head>
+
 <body>
-    <button class="back-button" onclick="window.location.href='index.html'">Back to Main View</button>
+    <nav class="nav">
+        <button img src="/images/orange_repicthousebase_1484336388.png" alt="Logo" id="home-button" class="nav-button" href="index.html">Home</button>
+        <button alt="label" placeholder="Profile" id="profile-button" class="nav-button">Profile</button>
+        <button id="new-button" class="nav-button" href="new-square.html" placeholder="New Square">New Square</button>
+        <button id="stored-button" class="nav-button" href="stored-squares.html" placeholder="Stored Squares">Stored Squares</button>
+        <button id="login ">Login with Google</button>
+        <button id="logout " style="display: none ">Logout</button>
+    </nav>
+    <button class="back-button" onclick="window.location.href='index.html'">
+      Back to Main View
+    </button>
     <svg id="chart"></svg>
 
     <!-- The Modal -->
@@ -110,7 +128,7 @@
             <input type="text" id="label-input" />
             <button id="save-label" class="modal-button">Save</button>
             <button id="cancel" class="modal-button">Cancel</button>
-            <br>
+            <br />
             <button id="view-scale" class="modal-button">Scaled View</button>
             <button id="view-scope" class="modal-button">Scoped View</button>
         </div>
@@ -127,7 +145,9 @@
         const smallestSquareSize = smallSquareSize / 2;
         const tinySquareSize = smallestSquareSize / 2;
 
-        svg.attr("viewBox", `0 0 ${width} ${height}`).attr("preserveAspectRatio", "xMidYMid meet");
+        svg
+            .attr("viewBox", `0 0 ${width} ${height}`)
+            .attr("preserveAspectRatio", "xMidYMid meet");
 
         const modal = document.getElementById("myModal");
         const modalText = document.getElementById("modal-text");
@@ -149,60 +169,65 @@
             labelInput.value = textElement.textContent;
         }
 
-        btnClose.onclick = function () {
+        btnClose.onclick = function() {
             modal.style.display = "none";
         };
 
-        window.onclick = function (event) {
+        window.onclick = function(event) {
             if (event.target === modal) {
                 modal.style.display = "none";
             }
         };
 
-        btnSaveLabel.onclick = function () {
+        btnSaveLabel.onclick = function() {
             if (currentTextElement) {
                 currentTextElement.textContent = labelInput.value;
             }
             modal.style.display = "none";
         };
 
-        btnViewScale.onclick = function () {
+        btnViewScale.onclick = function() {
             const newUrl = `scaled_view.html?root=${currentClassName}`;
             window.location.href = newUrl;
         };
 
-        btnViewScope.onclick = function () {
+        btnViewScope.onclick = function() {
             const newUrl = `scoped_view.html?root=${currentClassName}`;
             window.location.href = newUrl;
         };
 
-        btnCancel.onclick = function () {
+        btnCancel.onclick = function() {
             modal.style.display = "none";
         };
 
         function debounce(func, wait) {
             let timeout;
-            return function (...args) {
+            return function(...args) {
                 clearTimeout(timeout);
                 timeout = setTimeout(() => func.apply(this, args), wait);
             };
         }
 
         function drawSquare(x, y, size, color, className, depth) {
-            const rect = svg.append("rect")
+            const rect = svg
+                .append("rect")
                 .attr("x", x - size / 2)
                 .attr("y", y - size / 2)
                 .attr("width", size)
                 .attr("height", size)
                 .attr("class", `square ${className}`)
                 .attr("fill", color)
-                .on("click", debounce(function () {
-                    const url = window.location.href;
-                    const textElement = d3.select(this.nextSibling);
-                    openModal(url, className, textElement.node());
-                }, 200));
+                .on(
+                    "click",
+                    debounce(function() {
+                        const url = window.location.href;
+                        const textElement = d3.select(this.nextSibling);
+                        openModal(url, className, textElement.node());
+                    }, 200)
+                );
 
-            svg.append("text")
+            svg
+                .append("text")
                 .attr("x", x)
                 .attr("y", y)
                 .attr("dy", "0.35em")
@@ -213,28 +238,114 @@
         }
 
         const urlParams = new URLSearchParams(window.location.search);
-        const rootClass = urlParams.get('root') || 'root';
+        const rootClass = urlParams.get("root") || "root";
 
         function drawScale() {
-            if (rootClass === 'leaf') {
-                drawSquare(centerX, centerY, centerSquareSize, "lightgreen", "leaf", 2);
-                drawSquare(centerX, centerY - centerSquareSize * 1.5, smallSquareSize, "lightgray", "branch", 1);
-            } else if (rootClass === 'branch') {
-                drawSquare(centerX, centerY, centerSquareSize, "lightgray", "branch", 1);
-                drawSquare(centerX, centerY - centerSquareSize * 1.5, smallSquareSize, "lightblue", "root", 0);
-            } else if (rootClass === 'fruit') {
-                drawSquare(centerX, centerY, centerSquareSize, "lightcoral", "fruit", 3);
-                drawSquare(centerX, centerY - centerSquareSize * 1.5, smallSquareSize, "lightgreen", "leaf", 2);
+            if (rootClass === "leaf") {
+                drawSquare(
+                    centerX,
+                    centerY,
+                    centerSquareSize,
+                    "lightgreen",
+                    "leaf",
+                    2
+                );
+                drawSquare(
+                    centerX,
+                    centerY - centerSquareSize * 1.5,
+                    smallSquareSize,
+                    "lightgray",
+                    "branch",
+                    1
+                );
+            } else if (rootClass === "branch") {
+                drawSquare(
+                    centerX,
+                    centerY,
+                    centerSquareSize,
+                    "lightgray",
+                    "branch",
+                    1
+                );
+                drawSquare(
+                    centerX,
+                    centerY - centerSquareSize * 1.5,
+                    smallSquareSize,
+                    "lightblue",
+                    "root",
+                    0
+                );
+            } else if (rootClass === "fruit") {
+                drawSquare(
+                    centerX,
+                    centerY,
+                    centerSquareSize,
+                    "lightcoral",
+                    "fruit",
+                    3
+                );
+                drawSquare(
+                    centerX,
+                    centerY - centerSquareSize * 1.5,
+                    smallSquareSize,
+                    "lightgreen",
+                    "leaf",
+                    2
+                );
             } else {
-                drawSquare(centerX, centerY, centerSquareSize, "lightblue", "root", 0);
-                drawSquare(centerX - centerSquareSize / 2, centerY - centerSquareSize / 2, smallSquareSize, "lightgray", "branch1", 1);
-                drawSquare(centerX + centerSquareSize / 2, centerY - centerSquareSize / 2, smallSquareSize, "lightgray", "branch2", 1);
-                drawSquare(centerX - centerSquareSize / 2, centerY + centerSquareSize / 2, smallSquareSize, "lightgray", "branch3", 1);
-                drawSquare(centerX + centerSquareSize / 2, centerY + centerSquareSize / 2, smallSquareSize, "lightgray", "branch4", 1);
+                drawSquare(
+                    centerX,
+                    centerY,
+                    centerSquareSize,
+                    "lightblue",
+                    "root",
+                    0
+                );
+                drawSquare(
+                    centerX - centerSquareSize / 2,
+                    centerY - centerSquareSize / 2,
+                    smallSquareSize,
+                    "lightgray",
+                    "branch1",
+                    1
+                );
+                drawSquare(
+                    centerX + centerSquareSize / 2,
+                    centerY - centerSquareSize / 2,
+                    smallSquareSize,
+                    "lightgray",
+                    "branch2",
+                    1
+                );
+                drawSquare(
+                    centerX - centerSquareSize / 2,
+                    centerY + centerSquareSize / 2,
+                    smallSquareSize,
+                    "lightgray",
+                    "branch3",
+                    1
+                );
+                drawSquare(
+                    centerX + centerSquareSize / 2,
+                    centerY + centerSquareSize / 2,
+                    smallSquareSize,
+                    "lightgray",
+                    "branch4",
+                    1
+                );
             }
         }
 
         drawScale();
     </script>
+    <footer class="footer">
+        <button class="footer-link" href="https://twitter.com" target="_blank">Twitter</button>
+        <button class="footer-link" href="https://facebook.com" target="_blank">Facebook</button>
+        <button class="footer-link" href="settings.html">Settings</button>
+        <button class="footer-link" href="about.html">About</button>
+        <button class="footer-link" href="contact.html">Contact</button>
+        <button id="footer-logout" class="footer-link">Logout</button>
+    </footer>
 </body>
+
 </html>

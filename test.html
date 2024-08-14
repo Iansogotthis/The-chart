@@ -1,22 +1,26 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Jest Test Runner</title>
-        <!-- Include Jest -->
-        <script src="https://unpkg.com/jest@latest"></script>
-        <!-- Include @testing-library/dom for DOM testing utilities -->
-        <script src="https://unpkg.com/@testing-library/dom/dist/@testing-library/dom.umd.js"></script>
-        <!-- Include jest-dom for custom matchers -->
-        <script src="https://unpkg.com/@testing-library/jest-dom/dist/index.umd.js"></script>
-        <!-- Include D3.js -->
-        <script src="https://d3js.org/d3.v7.min.js"></script>
-    </head>
-    <body>
-        <div id="test-results"></div>
-        <script>
-            document.body.innerHTML = `
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jest Test Runner</title>
+    <!-- Include Jest -->
+    <script src="https://unpkg.com/jest@latest"></script>
+    <!-- Include @testing-library/dom for DOM testing utilities -->
+    <script src="https://unpkg.com/@testing-library/dom/dist/@testing-library/dom.umd.js"></script>
+    <!-- Include jest-dom for custom matchers -->
+    <script src="https://unpkg.com/@testing-library/jest-dom/dist/index.umd.js"></script>
+    <!-- Include D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Firebase App (the core Firebase SDK) -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<!-- Firebase Authentication -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  </head>
+  <body>
+    <div id="test-results"></div>
+    <script>
+      document.body.innerHTML = `
                 <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
@@ -31,96 +35,110 @@
                 </div>
                 <svg id="chart"></svg>
             `;
-            
-            const d3 = window.d3;
 
-            const svg = d3.select("#chart");
+      const d3 = window.d3;
 
-            const modal = document.getElementById('myModal');
-            const modalText = document.getElementById('modal-text');
-            const labelInput = document.getElementById('label-input');
+      const svg = d3.select("#chart");
 
-            function openModal(url, className, textElement) {
-                modal.style.display = 'flex';
-                modalText.textContent = `Square ${className} clicked! Edit Label:`;
-                labelInput.value = textElement.textContent;
-            }
+      const modal = document.getElementById("myModal");
+      const modalText = document.getElementById("modal-text");
+      const labelInput = document.getElementById("label-input");
 
-            function handleMouseOver(element) {
-                const id = d3.select(element).attr("id");
-                svg.selectAll('.square').classed('faded', true);
-                d3.select(element).classed('faded', false).classed('hovered', true);
+      function openModal(url, className, textElement) {
+        modal.style.display = "flex";
+        modalText.textContent = `Square ${className} clicked! Edit Label:`;
+        labelInput.value = textElement.textContent;
+      }
 
-                svg.selectAll('.square').each(function () {
-                    if (d3.select(this).attr('parent-id') === id) {
-                        d3.select(this).classed('faded', false).classed('hovered', true);
-                    }
-                });
-            }
+      function handleMouseOver(element) {
+        const id = d3.select(element).attr("id");
+        svg.selectAll(".square").classed("faded", true);
+        d3.select(element).classed("faded", false).classed("hovered", true);
 
-            function handleMouseOut() {
-                svg.selectAll('.square').classed('faded', false).classed('hovered', false);
-            }
+        svg.selectAll(".square").each(function () {
+          if (d3.select(this).attr("parent-id") === id) {
+            d3.select(this).classed("faded", false).classed("hovered", true);
+          }
+        });
+      }
 
-            // Jest Test Cases
-            describe('Modal Functions', () => {
-                test('openModal function should open the modal with correct text', () => {
-                    const url = 'test_url';
-                    const className = 'test_class';
-                    const textElement = document.createElement('p');
-                    textElement.textContent = 'Test Label';
-                    openModal(url, className, textElement);
-                    expect(modal.style.display).toBe('flex');
-                    expect(modalText.textContent).toBe('Square test_class clicked! Edit Label:');
-                    expect(labelInput.value).toBe('Test Label');
-                });
+      function handleMouseOut() {
+        svg
+          .selectAll(".square")
+          .classed("faded", false)
+          .classed("hovered", false);
+      }
 
-                test('openModal function should not open the modal with incorrect text', () => {
-                    const url = 'test_url';
-                    const className = 'test_class';
-                    const textElement = document.createElement('p');
-                    textElement.textContent = 'Test Label';
-                    openModal(url, className, textElement);
-                    expect(modal.style.display).not.toBe('none');
-                    expect(modalText.textContent).not.toBe('Incorrect text');
-                    expect(labelInput.value).not.toBe('Incorrect Label');
-                });
-            });
+      // Jest Test Cases
+      describe("Modal Functions", () => {
+        test("openModal function should open the modal with correct text", () => {
+          const url = "test_url";
+          const className = "test_class";
+          const textElement = document.createElement("p");
+          textElement.textContent = "Test Label";
+          openModal(url, className, textElement);
+          expect(modal.style.display).toBe("flex");
+          expect(modalText.textContent).toBe(
+            "Square test_class clicked! Edit Label:"
+          );
+          expect(labelInput.value).toBe("Test Label");
+        });
 
-            describe('Hover Functions', () => {
-                test('handleMouseOver function should highlight neighboring squares', () => {
-                    const element = document.createElement('rect');
-                    element.setAttribute('id', 'root');
-                    handleMouseOver(element);
-                    expect(svg.selectAll('.square.hovered').size()).toBeGreaterThan(0);
-                });
+        test("openModal function should not open the modal with incorrect text", () => {
+          const url = "test_url";
+          const className = "test_class";
+          const textElement = document.createElement("p");
+          textElement.textContent = "Test Label";
+          openModal(url, className, textElement);
+          expect(modal.style.display).not.toBe("none");
+          expect(modalText.textContent).not.toBe("Incorrect text");
+          expect(labelInput.value).not.toBe("Incorrect Label");
+        });
+      });
 
-                test('handleMouseOver function should not highlight neighboring squares if element ID is incorrect', () => {
-                    const element = document.createElement('rect');
-                    element.setAttribute('id', 'invalid_id');
-                    handleMouseOver(element);
-                    expect(svg.selectAll('.square.hovered').size()).toBe(0);
-                });
+      describe("Hover Functions", () => {
+        test("handleMouseOver function should highlight neighboring squares", () => {
+          const element = document.createElement("rect");
+          element.setAttribute("id", "root");
+          handleMouseOver(element);
+          expect(svg.selectAll(".square.hovered").size()).toBeGreaterThan(0);
+        });
 
-                test('handleMouseOut function should remove highlighting from all squares', () => {
-                    handleMouseOut();
-                    expect(svg.selectAll('.square.hovered').size()).toBe(0);
-                });
+        test("handleMouseOver function should not highlight neighboring squares if element ID is incorrect", () => {
+          const element = document.createElement("rect");
+          element.setAttribute("id", "invalid_id");
+          handleMouseOver(element);
+          expect(svg.selectAll(".square.hovered").size()).toBe(0);
+        });
 
-                test('handleMouseOut function should not remove highlighting if squares are not hovered', () => {
-                    svg.selectAll('.square').classed('hovered', true);
-                    handleMouseOut();
-                    expect(svg.selectAll('.square.hovered').size()).toBeGreaterThan(0);
-                });
-            });
+        test("handleMouseOut function should remove highlighting from all squares", () => {
+          handleMouseOut();
+          expect(svg.selectAll(".square.hovered").size()).toBe(0);
+        });
 
-            // Run Jest tests and output the results
-            jest.runCLI({
-                projects: ['.'],
-                testEnvironment: 'jsdom'
-            }, ['.']).then((result) => {
-                document.getElementById("test-results").innerText = JSON.stringify(result, null, 2);
-            });
-        </script>
-    </body>
+        test("handleMouseOut function should not remove highlighting if squares are not hovered", () => {
+          svg.selectAll(".square").classed("hovered", true);
+          handleMouseOut();
+          expect(svg.selectAll(".square.hovered").size()).toBeGreaterThan(0);
+        });
+      });
+
+      // Run Jest tests and output the results
+      jest
+        .runCLI(
+          {
+            projects: ["."],
+            testEnvironment: "jsdom"
+          },
+          ["."]
+        )
+        .then((result) => {
+          document.getElementById("test-results").innerText = JSON.stringify(
+            result,
+            null,
+            2
+          );
+        });
+    </script>
+  </body>
 </html>
