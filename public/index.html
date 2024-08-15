@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="en">
-
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+     <script src="https://unpkg.com/react-router-dom@6/umd/react-router-dom.min.js"></script>
+     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -193,7 +197,7 @@
         <button id="logout " style="display: none ">Logout</button>
     </nav>
     <button class="delineated-button">Delineated View</button>
-
+    <div id="root"></div>
     <svg id="chart"></svg>
     <!-- The Modal -->
 
@@ -461,6 +465,17 @@
 
         // Example usage of saveSquareData function
     </script>
+    <script type="text/babel" src="Login.js"></script>
+     <script type="text/babel" src="Profile.js"></script>
+     <script>
+       ReactDOM.render(
+         <React.StrictMode>
+           <Login />
+         </React.StrictMode>,
+         document.getElementById('root')
+       );
+     </script>
+
     </br>
 
     <footer class="footer">

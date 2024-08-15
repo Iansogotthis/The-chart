@@ -1,24 +1,33 @@
 // Profile.js
-import React from 'react';
-import { auth } from './firebase';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { signOutUser } from './auth';
+import React, { useState, useEffect } from 'react';
+import { getUserInfo } from './auth';
 
 const Profile = () => {
-  const [user] = useAuthState(auth);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const userInfo = await getUserInfo();
+      setUser(userInfo);
+    };
+
+    fetchUser();
+  }, []);
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
-      <h2>Profile Page</h2>
-      {user && (
-        <div>
-          <p>Name: {user.displayName}</p>
-          <p>Email: {user.email}</p>
-          <button onClick={signOutUser}>Sign Out</button>
-        </div>
-      )}
+      <h1>Welcome, {user.username}!</h1>
+      <p>Email: {user.email}</p>
+      <p>Replit ID: {user.id}</p>
     </div>
   );
 };
 
 export default Profile;
+
+>> +
+  

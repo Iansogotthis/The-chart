@@ -1,0 +1,585 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   '/nix/store/6g9n96qf1yx139xklnmy3v4xhjvjgsji-nodejs-20.12.2/bin/node',
+1 verbose cli   '/home/runner/The-chart-1/node_modules/.bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '@replit/repl-auth'
+1 verbose cli ]
+2 info using npm@2.15.12
+3 info using node@v20.12.2
+4 verbose install initial load of /home/runner/The-chart-1/package.json
+5 warn package.json the-chart@1.0.0 No repository field.
+6 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/accepts/package.json
+7 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/ansi-regex/package.json
+8 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/ansi-styles/package.json
+9 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/array-flatten/package.json
+10 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/bignumber.js/package.json
+11 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/bluebird/package.json
+12 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/body-parser/package.json
+13 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/bytes/package.json
+14 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/call-bind/package.json
+15 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/cliui/package.json
+16 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/color-convert/package.json
+17 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/color-name/package.json
+18 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/content-disposition/package.json
+19 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/content-type/package.json
+20 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/cookie/package.json
+21 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/cookie-signature/package.json
+22 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/core-util-is/package.json
+23 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/cors/package.json
+24 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/debug/package.json
+25 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/define-data-property/package.json
+26 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/depd/package.json
+27 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/destroy/package.json
+28 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/dotenv/package.json
+29 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/ee-first/package.json
+30 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/emoji-regex/package.json
+31 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/encodeurl/package.json
+32 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/es-define-property/package.json
+33 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/es-errors/package.json
+34 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/escalade/package.json
+35 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/escape-html/package.json
+36 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/etag/package.json
+37 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/express/package.json
+38 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/faye-websocket/package.json
+39 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/finalhandler/package.json
+40 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/firebase/package.json
+41 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/forwarded/package.json
+42 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/fresh/package.json
+43 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/function-bind/package.json
+44 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/get-caller-file/package.json
+45 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/get-intrinsic/package.json
+46 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/gopd/package.json
+47 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/has-property-descriptors/package.json
+48 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/has-proto/package.json
+49 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/has-symbols/package.json
+50 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/hasown/package.json
+51 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/http-errors/package.json
+52 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/http-parser-js/package.json
+53 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/iconv-lite/package.json
+54 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/idb/package.json
+55 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/inherits/package.json
+56 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/ipaddr.js/package.json
+57 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/is-fullwidth-code-point/package.json
+58 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/isarray/package.json
+59 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/js-tokens/package.json
+60 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/latest/package.json
+61 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/lodash.camelcase/package.json
+62 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/long/package.json
+63 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/loose-envify/package.json
+64 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/media-typer/package.json
+65 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/merge-descriptors/package.json
+66 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/methods/package.json
+67 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/mime/package.json
+68 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/mime-db/package.json
+69 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/mime-types/package.json
+70 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/ms/package.json
+71 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/mysql/package.json
+72 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/negotiator/package.json
+73 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/npm/package.json
+74 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/npx/package.json
+75 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/object-assign/package.json
+76 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/object-inspect/package.json
+77 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/on-finished/package.json
+78 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/parseurl/package.json
+79 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/path/package.json
+80 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/path-to-regexp/package.json
+81 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/process/package.json
+82 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/process-nextick-args/package.json
+83 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/protobufjs/package.json
+84 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/proxy-addr/package.json
+85 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/qs/package.json
+86 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/range-parser/package.json
+87 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/raw-body/package.json
+88 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/react/package.json
+89 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/react-dom/package.json
+90 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/react-firebase-hooks/package.json
+91 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/react-router/package.json
+92 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/react-router-dom/package.json
+93 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/readable-stream/package.json
+94 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/require-directory/package.json
+95 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/rethinkdb/package.json
+96 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/safe-buffer/package.json
+97 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/safer-buffer/package.json
+98 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/scheduler/package.json
+99 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/send/package.json
+100 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/serve-static/package.json
+101 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/set-function-length/package.json
+102 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/setprototypeof/package.json
+103 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/side-channel/package.json
+104 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/sqlstring/package.json
+105 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/statuses/package.json
+106 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/string-width/package.json
+107 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/string_decoder/package.json
+108 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/strip-ansi/package.json
+109 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/toidentifier/package.json
+110 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/tslib/package.json
+111 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/type-is/package.json
+112 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/undici/package.json
+113 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/undici-types/package.json
+114 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/unpipe/package.json
+115 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/util/package.json
+116 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/util-deprecate/package.json
+117 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/utils-merge/package.json
+118 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/vary/package.json
+119 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/websocket-driver/package.json
+120 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/websocket-extensions/package.json
+121 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/wrap-ansi/package.json
+122 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/y18n/package.json
+123 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/yargs/package.json
+124 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/yargs-parser/package.json
+125 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@fastify/busboy/package.json
+126 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/analytics/package.json
+127 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/analytics-compat/package.json
+128 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/analytics-types/package.json
+129 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/app/package.json
+130 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/app-check/package.json
+131 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/app-check-compat/package.json
+132 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/app-check-interop-types/package.json
+133 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/app-check-types/package.json
+134 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/app-compat/package.json
+135 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/app-types/package.json
+136 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/auth-compat/package.json
+137 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/auth-interop-types/package.json
+138 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/auth-types/package.json
+139 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/component/package.json
+140 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/database/package.json
+141 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/database-compat/package.json
+142 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/database-types/package.json
+143 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/firestore/package.json
+144 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/firestore-compat/package.json
+145 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/firestore-types/package.json
+146 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/functions/package.json
+147 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/functions-compat/package.json
+148 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/functions-types/package.json
+149 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/installations/package.json
+150 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/installations-compat/package.json
+151 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/installations-types/package.json
+152 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/logger/package.json
+153 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/messaging/package.json
+154 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/messaging-compat/package.json
+155 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/messaging-interop-types/package.json
+156 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/performance/package.json
+157 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/performance-compat/package.json
+158 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/performance-types/package.json
+159 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/remote-config/package.json
+160 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/remote-config-compat/package.json
+161 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/remote-config-types/package.json
+162 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/storage/package.json
+163 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/storage-compat/package.json
+164 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/storage-types/package.json
+165 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/util/package.json
+166 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/vertexai-preview/package.json
+167 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@firebase/webchannel-wrapper/package.json
+168 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@grpc/grpc-js/package.json
+169 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@grpc/proto-loader/package.json
+170 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@protobufjs/aspromise/package.json
+171 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@protobufjs/base64/package.json
+172 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@protobufjs/codegen/package.json
+173 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@protobufjs/eventemitter/package.json
+174 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@protobufjs/fetch/package.json
+175 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@protobufjs/float/package.json
+176 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@protobufjs/inquire/package.json
+177 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@protobufjs/path/package.json
+178 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@protobufjs/pool/package.json
+179 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@protobufjs/utf8/package.json
+180 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@remix-run/router/package.json
+181 verbose installManyTop reading scoped package data from /home/runner/The-chart-1/node_modules/@types/node/package.json
+182 info package.json @firebase/functions-compat@0.3.12 No description
+183 info package.json @firebase/functions-compat@0.3.12 No README data
+184 info package.json @firebase/installations-types@0.5.2 No README data
+185 info package.json @firebase/installations@0.6.8 No description
+186 info package.json @firebase/installations@0.6.8 No README data
+187 info package.json @firebase/performance-types@0.2.2 No README data
+188 info package.json latest@0.2.0 No license field.
+189 info package.json npm@2.15.12 Non-dependency in bundleDependencies: ansi-regex
+190 info package.json npm@2.15.12 Non-dependency in bundleDependencies: imurmurhash
+191 info package.json path@0.12.7 path is also the name of a node core module.
+192 info package.json process@0.11.10 process is also the name of a node core module.
+193 info package.json rethinkdb@2.4.2 No license field.
+194 info package.json string_decoder@1.1.1 string_decoder is also the name of a node core module.
+195 info package.json util@0.10.4 util is also the name of a node core module.
+196 verbose readDependencies loading dependencies from /home/runner/The-chart-1/package.json
+197 silly cache add args [ '@replit/repl-auth', null ]
+198 verbose cache add spec @replit/repl-auth
+199 silly cache add parsed spec Result {
+199 silly cache add   raw: '@replit/repl-auth',
+199 silly cache add   scope: '@replit',
+199 silly cache add   name: '@replit/repl-auth',
+199 silly cache add   rawSpec: '',
+199 silly cache add   spec: 'latest',
+199 silly cache add   type: 'tag'
+199 silly cache add }
+200 silly addNamed @replit/repl-auth@latest
+201 verbose addNamed "latest" is being treated as a dist-tag for @replit/repl-auth
+202 info addNameTag [ '@replit/repl-auth', 'latest' ]
+203 silly mapToRegistry name @replit/repl-auth
+204 silly mapToRegistry scope (from package name) @replit
+205 verbose mapToRegistry no registry URL found in name for scope @replit
+206 silly mapToRegistry using default registry
+207 silly mapToRegistry registry https://registry.npmjs.org/
+208 silly mapToRegistry data Result {
+208 silly mapToRegistry   raw: '@replit/repl-auth',
+208 silly mapToRegistry   scope: '@replit',
+208 silly mapToRegistry   name: '@replit/repl-auth',
+208 silly mapToRegistry   rawSpec: '',
+208 silly mapToRegistry   spec: 'latest',
+208 silly mapToRegistry   type: 'tag'
+208 silly mapToRegistry }
+209 silly mapToRegistry uri https://registry.npmjs.org/@replit%2frepl-auth
+210 verbose addNameTag registry:https://registry.npmjs.org/@replit%2frepl-auth not in flight; fetching
+211 verbose request uri https://registry.npmjs.org/@replit%2frepl-auth
+212 verbose request no auth needed
+213 info attempt registry request try #1 at 6:26:03 AM
+214 verbose request id ebc2fd9ae2453d51
+215 verbose etag W/"9e6539359bb31a2b606c54d4a18be96d"
+216 verbose lastModified Sat, 03 Aug 2024 00:24:14 GMT
+217 http request GET https://registry.npmjs.org/@replit%2frepl-auth
+218 http 304 https://registry.npmjs.org/@replit%2frepl-auth
+219 verbose headers {
+219 verbose headers   date: 'Thu, 15 Aug 2024 06:26:04 GMT',
+219 verbose headers   connection: 'keep-alive',
+219 verbose headers   'cf-ray': '8b371c669f3d28f8-ORD',
+219 verbose headers   'cf-cache-status': 'REVALIDATED',
+219 verbose headers   'access-control-allow-origin': '*',
+219 verbose headers   'cache-control': 'public, max-age=300',
+219 verbose headers   etag: '"9e6539359bb31a2b606c54d4a18be96d"',
+219 verbose headers   'last-modified': 'Sat, 03 Aug 2024 00:24:14 GMT',
+219 verbose headers   vary: 'Accept-Encoding',
+219 verbose headers   server: 'cloudflare'
+219 verbose headers }
+220 silly get cb [
+220 silly get   304,
+220 silly get   {
+220 silly get     date: 'Thu, 15 Aug 2024 06:26:04 GMT',
+220 silly get     connection: 'keep-alive',
+220 silly get     'cf-ray': '8b371c669f3d28f8-ORD',
+220 silly get     'cf-cache-status': 'REVALIDATED',
+220 silly get     'access-control-allow-origin': '*',
+220 silly get     'cache-control': 'public, max-age=300',
+220 silly get     etag: '"9e6539359bb31a2b606c54d4a18be96d"',
+220 silly get     'last-modified': 'Sat, 03 Aug 2024 00:24:14 GMT',
+220 silly get     vary: 'Accept-Encoding',
+220 silly get     server: 'cloudflare'
+220 silly get   }
+220 silly get ]
+221 verbose etag https://registry.npmjs.org/@replit%2frepl-auth from cache
+222 verbose get saving @replit/repl-auth to /home/runner/.npm/registry.npmjs.org/_40replit_252frepl-auth/.cache.json
+223 verbose correctMkdir /home/runner/.npm correctMkdir not in flight; initializing
+224 silly addNameTag next cb for @replit/repl-auth with tag latest
+225 silly addNamed @replit/repl-auth@1.0.0
+226 verbose addNamed "1.0.0" is a plain semver version for @replit/repl-auth
+227 silly cache afterAdd @replit/repl-auth@1.0.0
+228 verbose afterAdd /home/runner/.npm/@replit/repl-auth/1.0.0/package/package.json not in flight; writing
+229 verbose correctMkdir /home/runner/.npm correctMkdir not in flight; initializing
+230 verbose afterAdd /home/runner/.npm/@replit/repl-auth/1.0.0/package/package.json written
+231 silly install resolved [
+231 silly install resolved   {
+231 silly install resolved     name: '@replit/repl-auth',
+231 silly install resolved     version: '1.0.0',
+231 silly install resolved     keywords: [],
+231 silly install resolved     author: '',
+231 silly install resolved     license: 'ISC',
+231 silly install resolved     _id: '@replit/repl-auth@1.0.0',
+231 silly install resolved     maintainers: [
+231 silly install resolved       [Object], [Object], [Object],
+231 silly install resolved       [Object], [Object], [Object],
+231 silly install resolved       [Object], [Object], [Object],
+231 silly install resolved       [Object], [Object], [Object],
+231 silly install resolved       [Object], [Object], [Object],
+231 silly install resolved       [Object], [Object], [Object],
+231 silly install resolved       [Object], [Object], [Object]
+231 silly install resolved     ],
+231 silly install resolved     dist: {
+231 silly install resolved       shasum: '526a79bcef54dc74095e48dc9e0b88130cb24aa0',
+231 silly install resolved       tarball: 'https://registry.npmjs.org/@replit/repl-auth/-/repl-auth-1.0.0.tgz',
+231 silly install resolved       fileCount: 16,
+231 silly install resolved       integrity: 'sha512-cri3X9qVTvvlODHNxb9tR+YJEu59US70mNXckeOdxU4Jj1220Q2C+RAS1FPdNPCAqFSULI9iWOAHntMhOXwizw==',
+231 silly install resolved       signatures: [Array],
+231 silly install resolved       unpackedSize: 15298,
+231 silly install resolved       'npm-signature': '-----BEGIN PGP SIGNATURE-----\r\n' +
+231 silly install resolved         'Version: OpenPGP.js v4.10.10\r\n' +
+231 silly install resolved         'Comment: https://openpgpjs.org\r\n' +
+231 silly install resolved         '\r\n' +
+231 silly install resolved         'wsFzBAEBCAAGBQJi9d6vACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\n' +
+231 silly install resolved         'EgJ2VmofOhAAg2kXnx1fS/zDucWogBgaX22iiqKwTkfTA7/SRTmzgMQ8SeSW\r\n' +
+231 silly install resolved         'WuLxjbYHEnYUwTAZsUZUuQBPIXTbmwP1BK3ed0/xxUvutHWD3kGoYQeBO9cW\r\n' +
+231 silly install resolved         'SqAE5M5GsTuUUOyvmwY7kv8xpooLSOH5JMAYUzdGGrCv+bIB4hKpTH8kL0AA\r\n' +
+231 silly install resolved         'd0Jay9Y3bQ9Z+Qs5qh5UoOc0h0DNJnZWQP/fTFc7kYicyjz8fVcpqYszvYmq\r\n' +
+231 silly install resolved         '2IN0anvNVvzepp7Tv5ugW0r5wYPX7m5RRXAbca+JiB4Z6Xc+zUcxzxLkpok3\r\n' +
+231 silly install resolved         'mEi9kF2FeGCkDY9ZYFdDeDPIu6QnoZFbuDUVXpJYCPyNqYFQ2BAymeHzcs1a\r\n' +
+231 silly install resolved         'qFGrM1rJ/VK0pp7/1GtRriCSsIW/0CRX83zXoBjL6fe3ZmsKvckSQH4/6nXX\r\n' +
+231 silly install resolved         'N/UqNrrHLk2euULaz5G8Xq4apMeRF8TxeORR0RsB61qjDN+ti4qPlMjM9dbP\r\n' +
+231 silly install resolved         '+r2gMgImFyx8T96RAVYw/M06WxrSZ4vCWtOE7kTRqvQuG/zgTJPc8TfF9+pA\r\n' +
+231 silly install resolved         'Msucxu4SixyacJsPGG18UCxstxsnp8HzccSZ0TM7bAXYIbu0fZidIsQqMJgf\r\n' +
+231 silly install resolved         'pvFZSml1Zw2bftz/0nysTFb8ToVmH/LNPD/WzKcn9zmVouZaybP2NeIHNTAV\r\n' +
+231 silly install resolved         'Gv8kV59MauYYWmKPUKsS/RK5hhqLoEKE/s8=\r\n' +
+231 silly install resolved         '=SK8G\r\n' +
+231 silly install resolved         '-----END PGP SIGNATURE-----\r\n'
+231 silly install resolved     },
+231 silly install resolved     main: 'lib/index.js',
+231 silly install resolved     types: './lib/index.d.ts',
+231 silly install resolved     gitHead: 'eae3621d7f04a0b40e868297bd61471f82b896fb',
+231 silly install resolved     scripts: {
+231 silly install resolved       lint: 'eslint .  --ext .ts && eslint . --ext .js',
+231 silly install resolved       test: 'tsc && cd tests && node index.test.js',
+231 silly install resolved       build: 'tsc',
+231 silly install resolved       'lint-fix': 'eslint --fix .  --ext .ts && eslint --fix .  --ext .js'
+231 silly install resolved     },
+231 silly install resolved     _npmUser: { name: 'krishkrosh', email: 'krish.life21@gmail.com' },
+231 silly install resolved     _npmVersion: '8.1.2',
+231 silly install resolved     description: 'Repl Authentication is a simple way to allow users to log in, and access their information.',
+231 silly install resolved     directories: { test: 'tests' },
+231 silly install resolved     _nodeVersion: '16.13.2',
+231 silly install resolved     dependencies: { '@types/express': '^4.17.13' },
+231 silly install resolved     _hasShrinkwrap: false,
+231 silly install resolved     devDependencies: {
+231 silly install resolved       eslint: '^8.21.0',
+231 silly install resolved       typescript: '^4.7.4',
+231 silly install resolved       '@typescript-eslint/parser': '^5.33.0',
+231 silly install resolved       '@typescript-eslint/eslint-plugin': '^5.33.0'
+231 silly install resolved     },
+231 silly install resolved     _npmOperationalInternal: {
+231 silly install resolved       tmp: 'tmp/repl-auth_1.0.0_1660280495241_0.4191758287126339',
+231 silly install resolved       host: 's3://npm-registry-packages'
+231 silly install resolved     },
+231 silly install resolved     _shasum: '526a79bcef54dc74095e48dc9e0b88130cb24aa0',
+231 silly install resolved     _resolved: 'https://registry.npmjs.org/@replit/repl-auth/-/repl-auth-1.0.0.tgz',
+231 silly install resolved     _from: '@replit/repl-auth@latest',
+231 silly install resolved     readme: 'ERROR: No README data found!'
+231 silly install resolved   }
+231 silly install resolved ]
+232 info install @replit/repl-auth@1.0.0 into /home/runner/The-chart-1
+233 info installOne @replit/repl-auth@1.0.0
+234 verbose installOne of @replit/repl-auth to /home/runner/The-chart-1 not in flight; installing
+235 verbose correctMkdir /home/runner/.npm/_locks correctMkdir not in flight; initializing
+236 verbose lock using /home/runner/.npm/_locks/replit-repl-auth-f4d4009dfc207917.lock for /home/runner/The-chart-1/node_modules/@replit/repl-auth
+237 silly install write writing @replit/repl-auth 1.0.0 to /home/runner/The-chart-1/node_modules/@replit/repl-auth
+238 verbose unbuild node_modules/@replit/repl-auth
+239 silly gentlyRm /home/runner/The-chart-1/node_modules/@replit/repl-auth is being purged from base /home/runner/The-chart-1
+240 verbose gentlyRm don't care about contents; nuking /home/runner/The-chart-1/node_modules/@replit/repl-auth
+241 verbose tar unpack /home/runner/.npm/@replit/repl-auth/1.0.0/package.tgz
+242 verbose tar unpacking to /home/runner/The-chart-1/node_modules/@replit/repl-auth
+243 silly gentlyRm /home/runner/The-chart-1/node_modules/@replit/repl-auth is being purged
+244 verbose gentlyRm don't care about contents; nuking /home/runner/The-chart-1/node_modules/@replit/repl-auth
+245 silly gunzTarPerm modes [ '755', '644' ]
+246 silly gunzTarPerm extractEntry .replit
+247 silly gunzTarPerm extractEntry tests/public/login.html
+248 silly gunzTarPerm extractEntry lib/index.js
+249 silly gunzTarPerm extractEntry tests/index.test.js
+250 silly gunzTarPerm extractEntry .eslintrc.json
+251 silly gunzTarPerm extractEntry .cache/replit/nix/env.json
+252 silly gunzTarPerm modified mode [ '.cache/replit/nix/env.json', 416, 420 ]
+253 silly gunzTarPerm extractEntry package.json
+254 silly gunzTarPerm extractEntry tests/package.json
+255 silly gunzTarPerm extractEntry .upm/store.json
+256 silly gunzTarPerm modified mode [ '.upm/store.json', 384, 420 ]
+257 silly gunzTarPerm extractEntry tsconfig.json
+258 silly gunzTarPerm extractEntry README.md
+259 silly gunzTarPerm extractEntry tests/testing.md
+260 silly gunzTarPerm extractEntry replit.nix
+261 silly gunzTarPerm extractEntry .config/build.sh
+262 silly gunzTarPerm extractEntry lib/index.d.ts
+263 silly gunzTarPerm extractEntry src/index.ts
+264 verbose write writing to /home/runner/The-chart-1/node_modules/@replit/repl-auth/package.json
+265 info preinstall @replit/repl-auth@1.0.0
+266 verbose readDependencies loading dependencies from /home/runner/The-chart-1/node_modules/@replit/repl-auth/package.json
+267 silly prepareForInstallMany adding @types/express@^4.17.13 from @replit/repl-auth dependencies
+268 verbose readDependencies loading dependencies from /home/runner/The-chart-1/node_modules/@replit/repl-auth/package.json
+269 silly cache add args [ '@types/express@^4.17.13', null ]
+270 verbose cache add spec @types/express@^4.17.13
+271 silly cache add parsed spec Result {
+271 silly cache add   raw: '@types/express@^4.17.13',
+271 silly cache add   scope: '@types',
+271 silly cache add   name: '@types/express',
+271 silly cache add   rawSpec: '^4.17.13',
+271 silly cache add   spec: '>=4.17.13 <5.0.0',
+271 silly cache add   type: 'range'
+271 silly cache add }
+272 silly addNamed @types/express@>=4.17.13 <5.0.0
+273 verbose addNamed ">=4.17.13 <5.0.0" is a valid semver range for @types/express
+274 silly addNameRange { name: '@types/express', range: '>=4.17.13 <5.0.0', hasData: false }
+275 silly mapToRegistry name @types/express
+276 silly mapToRegistry scope (from package name) @types
+277 verbose mapToRegistry no registry URL found in name for scope @types
+278 silly mapToRegistry using default registry
+279 silly mapToRegistry registry https://registry.npmjs.org/
+280 silly mapToRegistry data Result {
+280 silly mapToRegistry   raw: '@types/express',
+280 silly mapToRegistry   scope: '@types',
+280 silly mapToRegistry   name: '@types/express',
+280 silly mapToRegistry   rawSpec: '',
+280 silly mapToRegistry   spec: 'latest',
+280 silly mapToRegistry   type: 'tag'
+280 silly mapToRegistry }
+281 silly mapToRegistry uri https://registry.npmjs.org/@types%2fexpress
+282 verbose addNameRange registry:https://registry.npmjs.org/@types%2fexpress not in flight; fetching
+283 verbose request uri https://registry.npmjs.org/@types%2fexpress
+284 verbose request no auth needed
+285 info attempt registry request try #1 at 6:26:04 AM
+286 verbose etag W/"19ecb9db8e57de002c0a8591f76fad2d"
+287 verbose lastModified Mon, 24 Jun 2024 08:32:05 GMT
+288 http request GET https://registry.npmjs.org/@types%2fexpress
+289 http 304 https://registry.npmjs.org/@types%2fexpress
+290 verbose headers {
+290 verbose headers   date: 'Thu, 15 Aug 2024 06:26:04 GMT',
+290 verbose headers   connection: 'keep-alive',
+290 verbose headers   'cf-ray': '8b371c6b7a2228f8-ORD',
+290 verbose headers   'cf-cache-status': 'HIT',
+290 verbose headers   'access-control-allow-origin': '*',
+290 verbose headers   'cache-control': 'public, max-age=300',
+290 verbose headers   etag: '"19ecb9db8e57de002c0a8591f76fad2d"',
+290 verbose headers   'last-modified': 'Mon, 24 Jun 2024 08:32:05 GMT',
+290 verbose headers   vary: 'Accept-Encoding',
+290 verbose headers   server: 'cloudflare'
+290 verbose headers }
+291 silly get cb [
+291 silly get   304,
+291 silly get   {
+291 silly get     date: 'Thu, 15 Aug 2024 06:26:04 GMT',
+291 silly get     connection: 'keep-alive',
+291 silly get     'cf-ray': '8b371c6b7a2228f8-ORD',
+291 silly get     'cf-cache-status': 'HIT',
+291 silly get     'access-control-allow-origin': '*',
+291 silly get     'cache-control': 'public, max-age=300',
+291 silly get     etag: '"19ecb9db8e57de002c0a8591f76fad2d"',
+291 silly get     'last-modified': 'Mon, 24 Jun 2024 08:32:05 GMT',
+291 silly get     vary: 'Accept-Encoding',
+291 silly get     server: 'cloudflare'
+291 silly get   }
+291 silly get ]
+292 verbose etag https://registry.npmjs.org/@types%2fexpress from cache
+293 verbose get saving @types/express to /home/runner/.npm/registry.npmjs.org/_40types_252fexpress/.cache.json
+294 verbose correctMkdir /home/runner/.npm correctMkdir not in flight; initializing
+295 silly addNameRange number 2 { name: '@types/express', range: '>=4.17.13 <5.0.0', hasData: true }
+296 silly addNameRange versions [
+296 silly addNameRange   '@types/express',
+296 silly addNameRange   [
+296 silly addNameRange     '4.0.16-alpha', '4.0.17-alpha', '4.0.22-alpha',
+296 silly addNameRange     '4.0.23-alpha', '4.0.24-alpha', '4.0.25-alpha',
+296 silly addNameRange     '4.0.26-alpha', '4.0.27-alpha', '4.0.28-alpha',
+296 silly addNameRange     '4.0.29',       '4.0.30',       '4.0.31',
+296 silly addNameRange     '4.0.32',       '4.0.33',       '4.0.34',
+296 silly addNameRange     '4.0.35',       '4.0.36',       '4.0.37',
+296 silly addNameRange     '4.0.38',       '4.0.39',       '4.11.0',
+296 silly addNameRange     '4.11.1',       '4.16.0',       '4.16.1',
+296 silly addNameRange     '4.17.0',       '4.17.1',       '4.17.2',
+296 silly addNameRange     '4.17.3',       '4.17.4',       '4.17.5',
+296 silly addNameRange     '4.17.6',       '4.17.7',       '4.17.8',
+296 silly addNameRange     '4.17.9',       '4.17.10',      '4.17.11',
+296 silly addNameRange     '4.17.12',      '4.17.13',      '4.17.14',
+296 silly addNameRange     '4.17.15',      '4.17.16',      '4.17.17',
+296 silly addNameRange     '4.17.18',      '4.17.19',      '4.17.20',
+296 silly addNameRange     '4.17.21'
+296 silly addNameRange   ]
+296 silly addNameRange ]
+297 silly addNamed @types/express@4.17.21
+298 verbose addNamed "4.17.21" is a plain semver version for @types/express
+299 silly cache afterAdd @types/express@4.17.21
+300 verbose afterAdd /home/runner/.npm/@types/express/4.17.21/package/package.json not in flight; writing
+301 verbose correctMkdir /home/runner/.npm correctMkdir not in flight; initializing
+302 verbose afterAdd /home/runner/.npm/@types/express/4.17.21/package/package.json written
+303 silly install resolved [
+303 silly install resolved   {
+303 silly install resolved     name: '@types/express',
+303 silly install resolved     version: '4.17.21',
+303 silly install resolved     license: 'MIT',
+303 silly install resolved     _id: '@types/express@4.17.21',
+303 silly install resolved     maintainers: [ [Object] ],
+303 silly install resolved     contributors: [ [Object], [Object], [Object], [Object] ],
+303 silly install resolved     homepage: 'https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/express',
+303 silly install resolved     dist: {
+303 silly install resolved       shasum: 'c26d4a151e60efe0084b23dc3369ebc631ed192d',
+303 silly install resolved       tarball: 'https://registry.npmjs.org/@types/express/-/express-4.17.21.tgz',
+303 silly install resolved       fileCount: 5,
+303 silly install resolved       integrity: 'sha512-ejlPM315qwLpaQlQDTjPdsUFSc6ZsP4AN6AlWnogPjQ7CVi7PYF3YVz+CY3jE2pwYf7E/7HlDAN0rV2GxTG0HQ==',
+303 silly install resolved       signatures: [Array],
+303 silly install resolved       unpackedSize: 7863
+303 silly install resolved     },
+303 silly install resolved     main: '',
+303 silly install resolved     types: 'index.d.ts',
+303 silly install resolved     scripts: {},
+303 silly install resolved     _npmUser: { name: 'types', email: 'ts-npm-types@microsoft.com' },
+303 silly install resolved     repository: {
+303 silly install resolved       url: 'git+https://github.com/DefinitelyTyped/DefinitelyTyped.git',
+303 silly install resolved       type: 'git',
+303 silly install resolved       directory: 'types/express'
+303 silly install resolved     },
+303 silly install resolved     description: 'TypeScript definitions for express',
+303 silly install resolved     directories: {},
+303 silly install resolved     dependencies: {
+303 silly install resolved       '@types/qs': '*',
+303 silly install resolved       '@types/body-parser': '*',
+303 silly install resolved       '@types/serve-static': '*',
+303 silly install resolved       '@types/express-serve-static-core': '^4.17.33'
+303 silly install resolved     },
+303 silly install resolved     _hasShrinkwrap: false,
+303 silly install resolved     typeScriptVersion: '4.5',
+303 silly install resolved     _npmOperationalInternal: {
+303 silly install resolved       tmp: 'tmp/express_4.17.21_1699326610331_0.06397851099336571',
+303 silly install resolved       host: 's3://npm-registry-packages'
+303 silly install resolved     },
+303 silly install resolved     typesPublisherContentHash: 'fa18ce9be07653182e2674f9a13cf8347ffb270031a7a8d22ba0e785bbc16ce4',
+303 silly install resolved     _shasum: 'c26d4a151e60efe0084b23dc3369ebc631ed192d',
+303 silly install resolved     _resolved: 'https://registry.npmjs.org/@types/express/-/express-4.17.21.tgz',
+303 silly install resolved     _from: '@types/express@>=4.17.13 <5.0.0',
+303 silly install resolved     bugs: {
+303 silly install resolved       url: 'https://github.com/DefinitelyTyped/DefinitelyTyped/issues'
+303 silly install resolved     },
+303 silly install resolved     readme: 'ERROR: No README data found!'
+303 silly install resolved   }
+303 silly install resolved ]
+304 info install @types/express@4.17.21 into /home/runner/The-chart-1/node_modules/@replit/repl-auth
+305 info installOne @types/express@4.17.21
+306 verbose installOne of @types/express to /home/runner/The-chart-1/node_modules/@replit/repl-auth not in flight; installing
+307 verbose correctMkdir /home/runner/.npm/_locks correctMkdir not in flight; initializing
+308 verbose lock using /home/runner/.npm/_locks/types-express-51dd07b772d2cb7a.lock for /home/runner/The-chart-1/node_modules/@replit/repl-auth/node_modules/@types/express
+309 silly install write writing @types/express 4.17.21 to /home/runner/The-chart-1/node_modules/@replit/repl-auth/node_modules/@types/express
+310 verbose unbuild node_modules/@replit/repl-auth/node_modules/@types/express
+311 silly gentlyRm /home/runner/The-chart-1/node_modules/@replit/repl-auth/node_modules/@types/express is being purged from base /home/runner/The-chart-1
+312 verbose gentlyRm don't care about contents; nuking /home/runner/The-chart-1/node_modules/@replit/repl-auth/node_modules/@types/express
+313 verbose tar unpack /home/runner/.npm/@types/express/4.17.21/package.tgz
+314 verbose tar unpacking to /home/runner/The-chart-1/node_modules/@replit/repl-auth/node_modules/@types/express
+315 silly gentlyRm /home/runner/The-chart-1/node_modules/@replit/repl-auth/node_modules/@types/express is being purged
+316 verbose gentlyRm don't care about contents; nuking /home/runner/The-chart-1/node_modules/@replit/repl-auth/node_modules/@types/express
+317 silly gunzTarPerm modes [ '755', '644' ]
+318 silly gunzTarPerm extractEntry
+319 silly gunzTarPerm extractEntry
+320 silly gunzTarPerm extractEntry
+321 silly gunzTarPerm extractEntry
+322 silly gunzTarPerm extractEntry
+323 verbose unlock done using /home/runner/.npm/_locks/types-express-51dd07b772d2cb7a.lock for /home/runner/The-chart-1/node_modules/@replit/repl-auth/node_modules/@types/express
+324 verbose about to build /home/runner/The-chart-1/node_modules/@replit/repl-auth
+325 verbose unlock done using /home/runner/.npm/_locks/replit-repl-auth-f4d4009dfc207917.lock for /home/runner/The-chart-1/node_modules/@replit/repl-auth
+326 verbose stack Error: ENOTDIR: not a directory, open '/home/runner/The-chart-1/node_modules/@replit/repl-auth/node_modules/@types/express/package.json'
+327 verbose cwd /home/runner/The-chart-1
+328 error Linux 6.5.0-1025-gcp
+329 error argv "/nix/store/6g9n96qf1yx139xklnmy3v4xhjvjgsji-nodejs-20.12.2/bin/node" "/home/runner/The-chart-1/node_modules/.bin/npm" "install" "@replit/repl-auth"
+330 error node v20.12.2
+331 error npm  v2.15.12
+332 error path /home/runner/The-chart-1/node_modules/@replit/repl-auth/node_modules/@types/express/package.json
+333 error code ENOTDIR
+334 error errno -20
+335 error syscall open
+336 error ENOTDIR: not a directory, open '/home/runner/The-chart-1/node_modules/@replit/repl-auth/node_modules/@types/express/package.json'
+337 error If you need help, you may report this error at:
+337 error     <https://github.com/npm/npm/issues>
+338 verbose exit [ -20, true ]
+339 verbose unbuild node_modules/@replit/repl-auth/node_modules/@types/express
+340 silly gentlyRm /home/runner/The-chart-1/node_modules/@replit/repl-auth/node_modules/@types/express is being purged from base /home/runner/The-chart-1
+341 verbose gentlyRm don't care about contents; nuking /home/runner/The-chart-1/node_modules/@replit/repl-auth/node_modules/@types/express
+342 silly vacuum-fs purging /home/runner/The-chart-1/node_modules/@replit/repl-auth/node_modules/@types/express
+343 silly vacuum-fs removing /home/runner/The-chart-1/node_modules/@replit/repl-auth/node_modules/@types
+344 silly vacuum-fs removing /home/runner/The-chart-1/node_modules/@replit/repl-auth/node_modules
+345 silly vacuum-fs quitting because other entries in /home/runner/The-chart-1/node_modules/@replit/repl-auth
+346 verbose unbuild node_modules/@replit/repl-auth
+347 info preuninstall @replit/repl-auth@1.0.0
+348 info uninstall @replit/repl-auth@1.0.0
+349 verbose unbuild rmStuff @replit/repl-auth@1.0.0 from /home/runner/The-chart-1/node_modules
+350 verbose unbuild rmStuff in /home/runner/The-chart-1/node_modules/@replit
+351 info postuninstall @replit/repl-auth@1.0.0
+352 silly gentlyRm /home/runner/The-chart-1/node_modules/@replit/repl-auth is being purged from base /home/runner/The-chart-1
+353 verbose gentlyRm don't care about contents; nuking /home/runner/The-chart-1/node_modules/@replit/repl-auth
+354 silly vacuum-fs purging /home/runner/The-chart-1/node_modules/@replit/repl-auth
+355 silly vacuum-fs removing /home/runner/The-chart-1/node_modules/@replit
+356 silly vacuum-fs quitting because other entries in /home/runner/The-chart-1/node_modules

@@ -3,5 +3,8 @@
   "clean_urls": false,
   "routes": {
     "/**": "index.html"
+    "/profile": "profile.html"
+
   }
 }
+
