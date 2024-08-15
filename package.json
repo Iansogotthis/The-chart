@@ -1,7 +1,6 @@
 {
   "name": "the-chart",
   "version": "1.0.0",
-<<<<<<< HEAD
   "description": "The Chart is an extraordinary application that empowers individuals and organizations to unlock the transformative potential hidden within their data. By seamlessly combining the prowess of D3.js, React, and MySQL, this innovative tool enables users to weave raw information into a mesmerizing tapestry of dynamic visualizations and interactive experiences.",
   "main": "auth.js",
   "scripts": {
@@ -28,7 +27,6 @@
     "react-router": "^6.26.0",
     "react-router-dom": "^6.26.0",
     "rethinkdb": "^2.4.2"
-=======
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
@@ -9909,6 +9907,5 @@
         "node": ">=12"
       }
     }
->>>>>>> e58655fe93af374ce634ec3642c42dd2047c091d
   }
 }
