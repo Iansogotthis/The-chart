@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
 </head>
+
 <body>
     <div id="login-page">
         <button id="login-button">Login with Google</button>
@@ -27,14 +30,13 @@
     <script>
         // Firebase configuration
         const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_STORAGE_BUCKET",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID"
+            apiKey: "AIzaSyA0yb7NcFYj648foilzdpUVWUyoOqr0VOw",
+            authDomain: "seismic-fx-422005-e9.firebaseapp.com",
+            projectId: "seismic-fx-422005-e9",
+            storageBucket: "seismic-fx-422005-e9.appspot.com",
+            messagingSenderId: "466306927010",
+            appId: "1:466306927010:web:b229583110098687ba0afb"
         };
-
         // Initialize Firebase
         const app = firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
@@ -103,4 +105,5 @@
         });
     </script>
 </body>
+
 </html>

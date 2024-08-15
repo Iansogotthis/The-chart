@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
@@ -213,258 +214,96 @@
             <button id="view-scope" class="modal-button">Scoped View</button>
             <button id="include" class="modal-button">Include</button>
         </div>
+=======
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/10.12.5/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/10.12.5/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/10.12.5/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/10.12.5/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/10.12.5/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/10.12.5/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/10.12.5/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/10.12.5/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/10.12.5/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/10.12.5/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message">
+      <h2>Welcome</h2>
+      <h1>Firebase Hosting Setup Complete</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+>>>>>>> bf9e14126dec44a7b8f371c5df6dc42c5d31274d
     </div>
+    <p id="load">Firebase SDK Loading&hellip;</p>
+
     <script>
-        const svg = d3.select("#chart");
-        const width = window.innerWidth * 0.9;
-        const height = window.innerHeight * 0.9;
-        const centerX = width / 2;
-        const centerY = height / 2;
-        const centerSquareSize = Math.min(width, height) / 2;
-        const smallSquareSize = centerSquareSize / 2;
-        const smallestSquareSize = smallSquareSize / 2;
-        const tinySquareSize = smallestSquareSize / 2;
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-        svg
-            .attr("viewBox", `0 0 ${width} ${height}`)
-            .attr("preserveAspectRatio", "xMidYMid meet");
-
-        const modal = document.getElementById("myModal");
-        const modalText = document.getElementById("modal-text");
-        const btnClose = document.getElementsByClassName("close")[0];
-        const btnSaveLabel = document.getElementById("save-label");
-        const btnViewScale = document.getElementById("view-scale");
-        const btnViewScope = document.getElementById("view-scope");
-        const btnInclude = document.getElementById("include");
-        const btnCancel = document.getElementById("cancel");
-        const labelInput = document.getElementById("label-input");
-
-        let currentUrl = "";
-        let currentTextElement = null;
-        let currentSquareClass = "";
-
-        // Function to open the modal
-        function openModal(url, className, textElement) {
-            modal.style.display = "flex";
-            currentUrl = url;
-            currentTextElement = textElement;
-            currentSquareClass = className;
-            labelInput.value = textElement.textContent;
-            modalText.textContent = `Square ${className} clicked! Edit Label:`;
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
         }
-
-        // When the user clicks on <span> (x), close the modal
-        btnClose.onclick = function() {
-            modal.style.display = "none";
-        };
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        };
-
-        // When the user clicks on save label
-        btnSaveLabel.onclick = function() {
-            if (currentTextElement) {
-                currentTextElement.textContent = labelInput.value;
-            }
-            modal.style.display = "none";
-        };
-
-        // When the user clicks on view scale or view scope
-        btnViewScale.onclick = function() {
-            window.location.href = "scaled_view.html";
-        };
-
-        btnViewScope.onclick = function() {
-            window.location.href = "scoped_view.html";
-        };
-
-        btnInclude.onclick = function() {
-            window.location.href = `included_build.html?class=${currentSquareClass}&parent=${currentTextElement.textContent}`;
-        };
-
-        btnCancel.onclick = function() {
-            modal.style.display = "none";
-        };
-
-        // Debounce function
-        function debounce(func, wait) {
-            let timeout;
-            return function(...args) {
-                clearTimeout(timeout);
-                timeout = setTimeout(() => func.apply(this, args), wait);
-            };
-        }
-
-        // Function to draw a square and add as a clickable button
-        function drawSquare(x, y, size, color, className, depth, parentText) {
-            const rect = svg
-                .append("rect")
-                .attr("x", x - size / 2)
-                .attr("y", y - size / 2)
-                .attr("width", size)
-                .attr("height", size)
-                .attr("class", `square ${className}`)
-                .attr("fill", color)
-                .on(
-                    "click",
-                    debounce(function() {
-                        const url = `pages/scoped_page_${parentText}_${depth}_${className}.html`;
-                        const textElement = d3.select(this.nextSibling);
-                        openModal(url, className, textElement.node());
-                    }, 200)
-                );
-
-            const text = svg
-                .append("text")
-                .attr("x", x)
-                .attr("y", y)
-                .attr("dy", "0.35em")
-                .attr("text-anchor", "middle")
-                .attr("font-size", size / 5)
-                .attr("pointer-events", "none")
-                .text(className);
-        }
-
-        // Draw the root square
-        drawSquare(
-            centerX,
-            centerY,
-            centerSquareSize,
-            "lightblue",
-            "root",
-            1,
-            "Center"
-        );
-
-        // Coordinates for the small squares from the root square
-        const corners = [
-            [centerX - centerSquareSize / 2, centerY - centerSquareSize / 2], // top-left
-            [centerX + centerSquareSize / 2, centerY - centerSquareSize / 2], // top-right
-            [centerX - centerSquareSize / 2, centerY + centerSquareSize / 2], // bottom-left
-            [centerX + centerSquareSize / 2, centerY + centerSquareSize / 2] // bottom-right
-        ];
-
-        // Draw the squares in each layer
-        function drawSquares(corners, size, depth, className, parentText) {
-            if (depth > 3) return; // Limit the depth for better performance
-
-            const colors = {
-                root: "lightblue",
-                branch: "lightgray",
-                leaf: "lightgreen",
-                fruit: "lightcoral"
-            };
-
-            corners.forEach(([x, y], index) => {
-                let currentClassName;
-                if (depth === 1) {
-                    currentClassName = "branch";
-                } else if (depth === 2) {
-                    currentClassName = "leaf";
-                } else if (depth === 3) {
-                    currentClassName = "fruit";
-                }
-
-                drawSquare(
-                    x,
-                    y,
-                    size,
-                    colors[currentClassName] || "",
-                    currentClassName || "",
-                    depth,
-                    parentText
-                );
-
-                if (size > tinySquareSize) {
-                    const nextSize = size / 2;
-                    const nextCorners = [
-                        [x - size / 2, y - size / 2], // top-left
-                        [x + size / 2, y - size / 2], // top-right
-                        [x - size / 2, y + size / 2], // bottom-left
-                        [x + size / 2, y + size / 2] // bottom-right
-                    ];
-
-                    requestAnimationFrame(() => {
-                        drawSquares(
-                            nextCorners,
-                            nextSize,
-                            depth + 1,
-                            currentClassName || "",
-                            `${parentText}_${index + 1}`
-                        );
-                    });
-                }
-            });
-        }
-
-        // Start drawing from the initial corners and size
-        drawSquares(corners, smallSquareSize, 1, "root", "Root");
-
-        // Function to adjust fruit opacity on leaf hover
-        function adjustFruitOpacityOnLeafHover() {
-            const leafSquares = document.querySelectorAll(".leaf");
-            const fruitSquares = document.querySelectorAll(".fruit");
-
-            leafSquares.forEach((leaf) => {
-                leaf.addEventListener("mouseover", () => {
-                    fruitSquares.forEach((fruit) => {
-                        fruit.style.opacity = "1"; // Set fruit opacity to full on leaf hover
-                    });
-                });
-
-                leaf.addEventListener("mouseout", () => {
-                    fruitSquares.forEach((fruit) => {
-                        fruit.style.opacity = "0.3"; // Revert fruit opacity on mouse out
-                    });
-                });
-            });
-        }
-
-        document.addEventListener(
-            "DOMContentLoaded",
-            adjustFruitOpacityOnLeafHover
-        );
-
-        // Function to save square data via a POST request
-        function saveSquareData() {
-            // Your code here
-
-            fetch("/your-endpoint", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        // Your data here
-                    })
-                })
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error("Network response was not ok");
-                    }
-                    return response.json();
-                })
-                .then((data) => {
-                    console.log(data);
-                })
-                .catch((error) => {
-                    console.error(
-                        "There was a problem with the fetch operation:",
-                        error
-                    );
-                });
-        }
-
-
-
-
-
-        // Example usage of saveSquareData function
+      });
     </script>
+<<<<<<< HEAD
     <script type="text/babel" src="Login.js"></script>
      <script type="text/babel" src="Profile.js"></script>
      <script>
@@ -489,3 +328,7 @@
 </body>
 
 </html>
+=======
+  </body>
+</html>
+>>>>>>> bf9e14126dec44a7b8f371c5df6dc42c5d31274d
